@@ -11,28 +11,22 @@ import MapKit
 import ARKit
 import CoreData
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ARGhostNodeDelegate, GhostModelsDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ARGhostNodeDelegate, GhostModelsDelegate, GhostModelDelegate {
     
     let defaultFileNames: [String] = ["model1", "model2", "model3", "model4", "model5", "model6", "model7", "model8"]
     let defaultNames: [String] = ["Snowden", "Ghost 2", "Ghost 3", "Ghost 4", "Ghost 5", "Ghost 6", "Ghost 7", "Ghost 8"]
     let defaultBios: [String] = ["default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio"]
     let defaultLocations: [String] = ["location1", "location2", "location3", "location4", "location5", "location6", "location7", "location8"]
-        
-    let toggleButton = MapViewController.generateButtonWithImage(image: UIImage(named:"round_add_circle_black_36pt_2x.png")!, borderColor: UIColor.IdahoMuseumBlue.cgColor, cornerRadius: 36)
-    let ghostListButton = MapViewController.generateButtonWithImage(image: UIImage(named: "round_view_list_black_36pt_2x.png")!, borderColor: UIColor.IdahoMuseumBlue.cgColor, cornerRadius: 36)
-    let timerButton = MapViewController.generateButtonWithImage(image: UIImage(named: "round_timer_black_36pt_2x.png")!, borderColor: UIColor.IdahoMuseumBlue.cgColor, cornerRadius: 36)
-    let cameraButton = MapViewController.generateButtonWithImage(image: UIImage(named: "round_camera_alt_black_36pt_3x.png")!, borderColor: UIColor.IdahoMuseumBlue.cgColor, cornerRadius: 43)
-    let imageRecognitionButton = MapViewController.generateButtonWithImage(image: UIImage(named: "round_wallpaper_black_36pt_2x.png")!, borderColor: UIColor.IdahoMuseumBlue.cgColor, cornerRadius: 36)
     
     var customPins: [CustomPointAnnotation] = []
     
-    var ghostIndex: Int = 0    // TODO: get rid of this default value. Should be nil to start
+    var ghostIndex: Int = 0
+    var clickedIndex: Int = 0
     public var ghostObjects: [GhostModel] = []
-    
+    public var trackLocation: Bool = true
     private var ghosts: [NSManagedObject] = []
     
     var toggled: Bool = false   // ui button toggle
-    var cameraButtonEnabled: Bool = false   // used to determine if ready for an AR situation
     var pinAnnotationView:MKPinAnnotationView!  // used to display custom pins
     var mapView:MKMapView?  // map view
     var locationManager:CLLocationManager?  // used to track user location
@@ -42,7 +36,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
         getCurrentGhosts()
+        addGhostToMap(ghostModel: ghostObjects[0])
         startUpdateTimer()
     }
     
@@ -56,16 +52,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         setupNavigationBar()
         requestLocation()
         setupMap()
-        addButtons()
-        
-        
-        enableCameraButton()
-        
-        
     }
     
+    // Starts timer, navigations to game over view when time runs out
     func startUpdateTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            let formatter = DateComponentsFormatter()
+            formatter.allowedUnits = [.hour, .minute, .second]
+            formatter.unitsStyle = .full
+            let formattedString = formatter.string(from: TimeInterval((TimerModel.sharedTimer.getTimeLimit() - TimerModel.sharedTimer.getTimeElapsed())))!
+            self.navigationItem.title = "Time Remaining: \(formattedString)"
             if TimerModel.sharedTimer.getTimeElapsed() >= TimerModel.sharedTimer.getTimeLimit() {
                 print("time to end game")
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -79,6 +75,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    // Gets saved ghost data or sets up ghosts from default values
     func getCurrentGhosts() {
         if (ghostObjects.count == 0) {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -100,6 +97,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    // Sets up data for ghost model and adds to ghostObjects array
     func setupGhost(ghost: NSManagedObject) {
         let ghostFileName: String = ghost.value(forKey: "model") as! String
         let ghostName: String = ghost.value(forKey: "name") as! String
@@ -108,29 +106,37 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let ghostPoints: Int = ghost.value(forKey: "points") as! Int
         
         // using values to create models
-        let ghostModel = GhostModel(fileName: ghostFileName, ghostName: ghostName, ghostYear: "1887", ghostBio: ghostBio, ghostLocation: ghostLocation, ghostPoints: ghostPoints, locked: false)
+        let ghostModel = GhostModel(fileName: ghostFileName, ghostName: ghostName, ghostYear: "1887", ghostBio: ghostBio, ghostLocation: ghostLocation, ghostPoints: ghostPoints, locked: true)
         ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
         self.ghostObjects.append(ghostModel)
-        
-        // add pin to map at ghost location
-        let ghostPin = MapViewController.generateCustomPointAnnotationWithTitle(title: ghostModel.ghostName)   // ghost  pin
-        self.customPins.append(ghostPin)
-        self.addCustomPinAtCoordinate(coordinate: ghostModel.getLocation(locationString: ghostLocation), customPin: ghostPin)
     }
     
+    // Sets up defaults ghosts models and adds to ghostObjects array
     func setDefaultGhosts() {
         for i in 0...7 {
             // using hard coded default values to create models
-            let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true)
+            let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true) 
             ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
             self.ghostObjects.append(ghostModel)
-            
-            // add pin to map at ghost location
-            let ghostPin = MapViewController.generateCustomPointAnnotationWithTitle(title: ghostModel.ghostName)   // ghost  pin
-            self.customPins.append(ghostPin)
-            self.addCustomPinAtCoordinate(coordinate: ghostModel.getLocation(locationString: defaultLocations[i]), customPin: ghostPin)
         }
         
+    }
+    
+    // Adds specified ghost to map
+    func addGhostToMap(ghostModel: GhostModel) {
+        let ghostPin = MapViewController.generateCustomPointAnnotationWithTitle(title: ghostModel.ghostName)   // ghost  pin
+        self.customPins.append(ghostPin)
+        self.addCustomPinAtCoordinate(coordinate: ghostModel.ghostLocation, customPin: ghostPin)
+    }
+    
+    // Called when ghost is captured in AR Controller
+    func ghostCaptured() { 
+        if ghostIndex < ghostObjects.count - 1 {
+            trackLocation = true
+            locationManager?.startUpdatingLocation()
+            ghostIndex += 1
+            addGhostToMap(ghostModel: ghostObjects[ghostIndex])
+        }
     }
     
     // returns current ghost model of the delegate (sends info to ARSceneViewController)
@@ -141,6 +147,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // returns ghost objects of the delegate (sends info to GhostListViewController)
     func getGhostModels() -> [GhostModel] {
         return ghostObjects
+    }
+    
+    // returns ghost at current ghost index (sends info to Inmate VC)
+    func getGhostModel() -> GhostModel {
+        return ghostObjects[clickedIndex]
     }
     
     // general setup of navigation bar, starts hidden
@@ -163,29 +174,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // 37.33283141 -122.0312186
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userCoordinate = manager.location?.coordinate {
-            var augmentedRealityReady = false
-            if customPins.count > 0 {
-                for i in 0...customPins.count - 1 {
-                    if (customPins[i].coordinate.latitude - userCoordinate.latitude < 0.00001 && customPins[i].coordinate.latitude - userCoordinate.latitude > -0.0001) {
-                        if (customPins[i].coordinate.longitude - userCoordinate.longitude < 0.00001 && customPins[i].coordinate.longitude - userCoordinate.longitude > -0.0001) {
-                            customPins[i].subtitle = "Nearby!"
-                            if !augmentedRealityReady {
-                                augmentedRealityReady = true
-                                ghostIndex = i
-                                enableCameraButton()
-                            }
-                        } else {
-                            if !augmentedRealityReady && cameraButtonEnabled {
-                                //disableCameraButton() //TODO: uncomment this
-                                customPins[i].subtitle = "Wandering the area..."
-                                ghostIndex = i  // change this to -1
-                            }
-                        }
+            // TODO: move these four lines of code down
+            if (self.trackLocation) {
+                self.trackLocation = false
+                self.locationManager!.stopUpdatingLocation()
+                let arVC = ARSceneViewController()
+                arVC.delegate = self
+                navigationController?.pushViewController(arVC, animated: true)
+            }
+            if (customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude < 0.00001 && customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude > -0.0001) {
+                    if (customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude < 0.00001 && customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude > -0.0001) {
+                            // go to ar controller
                     }
                 }
             }
-            cameraButtonEnabled = augmentedRealityReady
-        }
     }
     
     // sets up map view to State Pen location
@@ -194,6 +196,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView?.delegate = self
         mapView?.mapType = MKMapType.hybrid
         mapView?.showsBuildings = true
+        mapView?.isUserInteractionEnabled = true
         mapView?.isScrollEnabled = false
         mapView?.isRotateEnabled = false
         mapView?.isZoomEnabled = false
@@ -209,143 +212,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView?.addAnnotation(customPin)
     }
     
-    // generates and places buttons
-    func addButtons() {
-        timerButton.addTarget(self, action: #selector(timerButtonPressed), for: .touchUpInside)
-        view.addSubview(timerButton)
-        addConstraintsWithFormat(format: "H:|-36-[v0(72)]", views: timerButton)
-        addConstraintsWithFormat(format: "V:[v0(72)]-36-|", views: timerButton)
-        timerButton.isEnabled = false
-        timerButton.alpha = 0
-        
-        ghostListButton.addTarget(self, action: #selector(ghostListButtonPressed), for: .touchUpInside)
-        view.addSubview(ghostListButton)
-        addConstraintsWithFormat(format: "H:|-36-[v0(72)]", views: ghostListButton)
-        addConstraintsWithFormat(format: "V:[v0(72)]-36-|", views: ghostListButton)
-        ghostListButton.isEnabled = false
-        ghostListButton.alpha = 0
-        
-        toggleButton.addTarget(self, action: #selector(toggleButtonPressed), for: .touchUpInside)
-        view.addSubview(toggleButton)
-        addConstraintsWithFormat(format: "H:|-36-[v0(72)]", views: toggleButton)
-        addConstraintsWithFormat(format: "V:[v0(72)]-36-|", views: toggleButton)
-        
-        cameraButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
-        cameraButton.isEnabled = false
-        cameraButton.alpha = 0
-        view.addSubview(cameraButton)
-        let divider = view.frame.size.width/2 - 43
-        addConstraintsWithFormat(format: "H:|-\(divider)-[v0(86)]-\(divider)-|", views: cameraButton)
-        addConstraintsWithFormat(format: "V:[v0(86)]-29-|", views: cameraButton)
-        
-        imageRecognitionButton.addTarget(self, action: #selector(imageRecognitionButtonPressed), for: .touchUpInside)
-        view.addSubview(imageRecognitionButton)
-        addConstraintsWithFormat(format: "H:|-36-[v0(72)]|", views: imageRecognitionButton)
-        addConstraintsWithFormat(format: "V:[v0(72)]-36-|", views: imageRecognitionButton)
-        imageRecognitionButton.isEnabled = false
-        imageRecognitionButton.alpha = 0
-    }
-    
-    // animates buttons up or back down
-    @objc func toggleButtonPressed() {
-        toggled = !toggled
-        if toggled {
-            UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.toggleButton.setImage(UIImage(named: "round_arrow_drop_down_circle_black_36pt_2x.png"), for: .normal)
-                
-                self.ghostListButton.isEnabled = true
-                self.ghostListButton.alpha = 1
-                self.ghostListButton.frame = CGRect(x: 36, y: self.view.frame.size.height - 72 * 2.75, width: 72, height: 72)
-                
-                self.timerButton.isEnabled = true
-                self.timerButton.alpha = 1
-                self.timerButton.frame = CGRect(x: 36, y: self.view.frame.size.height - 72 * 4, width: 72, height: 72)
-                
-                self.imageRecognitionButton.isEnabled = true
-                self.imageRecognitionButton.alpha = 1
-                self.imageRecognitionButton.frame = CGRect(x: 36, y: self.view.frame.size.height - 72 * 5.25, width: 72, height: 72)
-            }) { (success) in
-            }
-        } else {
-            UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-                self.toggleButton.setImage(UIImage(named: "round_add_circle_black_36pt_2x.png"), for: .normal)
-                
-                self.ghostListButton.isEnabled = false
-                self.ghostListButton.alpha = 0
-                self.ghostListButton.frame = CGRect(x: 36, y: self.view.frame.size.height - 108, width: 72, height: 72)
-                
-                self.timerButton.isEnabled = false
-                self.timerButton.alpha = 0
-                self.timerButton.frame = CGRect(x: 36, y: self.view.frame.size.height - 108, width: 72, height: 72)
-                
-                self.imageRecognitionButton.isEnabled = false
-                self.imageRecognitionButton.alpha = 0
-                self.imageRecognitionButton.frame = CGRect(x: 36, y: self.view.frame.size.height - 108, width: 72, height: 72)
-            }) { (success) in
-            }
-        }
-    }
-    
-    // animates camera to be enabled
-    func enableCameraButton() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.cameraButton.isEnabled = true
-            self.cameraButton.alpha = 1
-        }) { (success) in
-            print("camera enabled")
-        }
-    }
-    
-    // animates camera to be disabled
-    func disableCameraButton() {
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.cameraButton.isEnabled = false
-            self.cameraButton.alpha = 0
-        }) { (success) in
-            print("camera disabled")
-        }
-    }
-    
-    // pushes ghost list controller onto the navigation controller
-    @objc func ghostListButtonPressed() {
-        self.toggleButtonPressed()
-        let vc = GhostListViewController()
-        vc.delegate = self
-        self.navigationController?.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
-        navigationItem.title = "Map"    // sets back button text for pushed vc
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    // pushes timer view controller onto the navigation controller
-    @objc func timerButtonPressed() {
-        self.toggleButtonPressed()
-        let vc = TimerViewController()
-        self.navigationController?.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
-        navigationItem.title = "Map"    // sets back button text for pushed vc
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    // pushes AR camera onto the navigation controller
-    @objc func cameraButtonPressed() {
-        if (self.toggled) {
-            self.toggleButtonPressed()
-        }
-        let vc = ARSceneViewController()
-        vc.delegate = self
-        self.navigationController?.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
-        navigationItem.title="Map"  // sets back button text for pushed vc
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    // pushed image recognition ar view controller onto the navigation controller
-    @objc func imageRecognitionButtonPressed() {
-        self.toggleButtonPressed()
-        let vc = ImageRecognitionViewController()
-        self.navigationController?.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
-        navigationItem.title = "Map"    // sets back button text for pushed vc
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     // constraint generator takes in format and creates constraints
     func addConstraintsWithFormat(format: String, views: UIView...) {
         var viewsDictionary = [String : AnyObject]()
@@ -359,12 +225,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // annotation Setup
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         guard !annotation.isKind(of: MKUserLocation.self) else {
             // returns nil so user location is displayed instead of custom annotation
             return nil
         }
-        
         let reuseIdentifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
@@ -376,7 +240,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         let customPointAnnotation = annotation as! CustomPointAnnotation
         annotationView?.image = UIImage(named: customPointAnnotation.pinImage)
-        
         return annotationView
     }
     
@@ -407,5 +270,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return customPointAnnotation
     }
     
+    // If ghost is unlocked, clicking on map annotation will navigate to inmate view controller
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        //print(view.annotation?.title!)
+        if let ghostPin: CustomPointAnnotation = view.annotation as? CustomPointAnnotation {
+            if let index = self.customPins.firstIndex(of: ghostPin) {
+                clickedIndex = index
+                if self.ghostObjects[index].locked {    // TODO: flip bool for testing
+                    let vc = InmateViewController()
+                    vc.delegate = self as GhostModelDelegate
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            
+            
+        }
+    }
+    
 }
-

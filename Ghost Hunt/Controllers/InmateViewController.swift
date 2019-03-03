@@ -14,6 +14,11 @@ protocol GhostModelDelegate {
 
 class InmateViewController : UIViewController, ARGhostNodeDelegate {
     
+    func ghostCaptured() {
+        // nothing to do here
+    }
+    
+    
     var delegate: GhostModelDelegate!
     var ghostModel: GhostModel!
     

@@ -12,6 +12,7 @@ import SceneKit
 
 protocol ARGhostNodeDelegate {
     func getCurrentGhost() -> GhostModel
+    func ghostCaptured()
 }
 
 class ARSceneViewController: UIViewController, ARSCNViewDelegate {
@@ -135,6 +136,12 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
                             uiMarker?.isHidden = true
                             button?.isHidden = true
                             takeScreenshot()
+                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                                self.delegate.ghostCaptured()
+                                timer.invalidate()
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                           
                         } else {
                             if (self.ghostModel.locked && idle) {
                                 // locked and tapped animation while idle
