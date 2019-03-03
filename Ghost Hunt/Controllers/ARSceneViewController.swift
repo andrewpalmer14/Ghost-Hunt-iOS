@@ -136,10 +136,10 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
                             uiMarker?.isHidden = true
                             button?.isHidden = true
                             takeScreenshot()
-                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
-                                self.delegate.ghostCaptured()
+                            self.delegate.ghostCaptured()
+                            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
                                 timer.invalidate()
-                                self.navigationController?.popViewController(animated: true)
+                                //self.navigationController?.popViewController(animated: true)
                             }
                            
                         } else {

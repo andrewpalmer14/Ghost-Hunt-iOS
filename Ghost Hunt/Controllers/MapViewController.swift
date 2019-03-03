@@ -38,8 +38,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
         getCurrentGhosts()
-        addGhostToMap(ghostModel: ghostObjects[0])
         startUpdateTimer()
+        resumeTrackingLocation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,8 +50,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        requestLocation()
         setupMap()
+        requestLocation()
     }
     
     // Starts timer, navigations to game over view when time runs out
@@ -109,6 +109,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let ghostModel = GhostModel(fileName: ghostFileName, ghostName: ghostName, ghostYear: "1887", ghostBio: ghostBio, ghostLocation: ghostLocation, ghostPoints: ghostPoints, locked: true)
         ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
         self.ghostObjects.append(ghostModel)
+        if (ghostObjects.count == 1) {
+            addGhostToMap(ghostModel: ghostObjects[0])
+        }
+        print(ghostObjects.count)
     }
     
     // Sets up defaults ghosts models and adds to ghostObjects array
@@ -118,6 +122,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true) 
             ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
             self.ghostObjects.append(ghostModel)
+            if (ghostObjects.count == 1) {
+                addGhostToMap(ghostModel: ghostObjects[0])
+            }
         }
         
     }
@@ -130,12 +137,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // Called when ghost is captured in AR Controller
-    func ghostCaptured() { 
+    func ghostCaptured() {
         if ghostIndex < ghostObjects.count - 1 {
-            trackLocation = true
-            locationManager?.startUpdatingLocation()
             ghostIndex += 1
+            print("Ghost Captured! Now at index: \(ghostIndex)")
             addGhostToMap(ghostModel: ghostObjects[ghostIndex])
+        } else {
+            print("Index out of bounds")
         }
     }
     
@@ -171,23 +179,50 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager?.startUpdatingLocation()
     }
     
+    // flips tracking bool, starts updating user location
+    func resumeTrackingLocation() {
+        trackLocation = true
+        locationManager?.startUpdatingLocation()
+    }
+    
     // 37.33283141 -122.0312186
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userCoordinate = manager.location?.coordinate {
-            // TODO: move these four lines of code down
-            if (self.trackLocation) {
+            let finalIndex = ghostObjects.count - 1
+            if ghostIndex == finalIndex && !ghostObjects[finalIndex].locked {
+                print("game won!")
+                self.locationManager?.stopUpdatingLocation()
+                manager.stopUpdatingLocation()
                 self.trackLocation = false
-                self.locationManager!.stopUpdatingLocation()
-                let arVC = ARSceneViewController()
-                arVC.delegate = self
-                navigationController?.pushViewController(arVC, animated: true)
-            }
-            if (customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude < 0.00001 && customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude > -0.0001) {
-                    if (customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude < 0.00001 && customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude > -0.0001) {
-                            // go to ar controller
-                    }
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let vc = GhostListViewController()
+                vc.gameOver = true
+                vc.gameWon = true
+                vc.delegate = self
+                let navigationContrller = UINavigationController(rootViewController: vc)
+                navigationContrller.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
+                appDelegate.window?.rootViewController = navigationContrller
+            } else {
+                if !ghostObjects[ghostIndex].locked {
+                    print("Ghost Already Captured...")
+                    ghostCaptured()
+                }
+                if (customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude < 0.00001 && customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude > -0.0001) {
+                        if (customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude < 0.00001 && customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude > -0.0001) {
+                            // TODO: Move chunk of code here
+                                if (self.trackLocation) {
+                                    print("Ghost Nearby!")
+                                    UIDevice.vibrate()
+                                    self.trackLocation = false
+                                    self.locationManager!.stopUpdatingLocation()
+                                    let arVC = ARSceneViewController()
+                                    arVC.delegate = self
+                                    navigationController?.pushViewController(arVC, animated: true)
+                                }
+                        }
                 }
             }
+        }
     }
     
     // sets up map view to State Pen location
@@ -276,7 +311,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let ghostPin: CustomPointAnnotation = view.annotation as? CustomPointAnnotation {
             if let index = self.customPins.firstIndex(of: ghostPin) {
                 clickedIndex = index
-                if self.ghostObjects[index].locked {    // TODO: flip bool for testing
+                if !self.ghostObjects[index].locked {    // TODO: flip bool for testing
                     let vc = InmateViewController()
                     vc.delegate = self as GhostModelDelegate
                     self.navigationController?.pushViewController(vc, animated: true)
@@ -287,4 +322,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+}
+
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
 }

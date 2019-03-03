@@ -18,7 +18,7 @@ class GhostListViewController: UIViewController, UITableViewDelegate, UITableVie
     var delegate:GhostModelsDelegate!
     var ghostModels: [GhostModel]!
     var selectedIndex: Int = 0
-    
+    public var gameWon: Bool = false
     let ghostTableView: UITableView = {
         let tableView = UITableView()
         tableView.isSpringLoaded = true
@@ -57,7 +57,11 @@ class GhostListViewController: UIViewController, UITableViewDelegate, UITableVie
         if (!gameOver) {
             navigationItem.title = "Inmate List"
         } else {
-            navigationItem.title = "Game Over"
+            if gameWon {
+                navigationItem.title = "You Won!"
+            } else {
+                navigationItem.title = "Game Over"
+            }
         }
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -79,12 +83,17 @@ class GhostListViewController: UIViewController, UITableViewDelegate, UITableVie
    
     func setupView() {
         ghostModels = delegate.getGhostModels()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         view.backgroundColor = UIColor.gray
         navigationController?.navigationBar.isHidden = false
         if (!gameOver) {
             navigationItem.title = "Ghosts"
         } else {
-            navigationItem.title = "Game Over"
+            if gameWon {
+                navigationItem.title = "You Won!"
+            } else {
+                navigationItem.title = "Game Over"
+            }
         }
         ghostTableView.register(GhostCell.self, forCellReuseIdentifier: "cellId")
         ghostTableView.delegate = self
