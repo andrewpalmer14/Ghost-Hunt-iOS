@@ -188,6 +188,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // 37.33283141 -122.0312186
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userCoordinate = manager.location?.coordinate {
+            if ghostIndex == 0 {    //TODO: Remove this line, testing purposes only
+                if self.trackLocation { //TODO: MOVE THIS BACK INTO LOCAtION TEST
+                    print("Ghost Nearby!")
+                    UIDevice.vibrate()
+                    self.trackLocation = false
+                    self.locationManager!.stopUpdatingLocation()
+                    let arVC = ARSceneViewController()
+                    arVC.delegate = self
+                    navigationController?.pushViewController(arVC, animated: true)
+                }
+            }
             let finalIndex = ghostObjects.count - 1
             if ghostIndex == finalIndex && !ghostObjects[finalIndex].locked {
                 print("game won!")
@@ -209,16 +220,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
                 if (customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude < 0.00001 && customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude > -0.0001) {
                         if (customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude < 0.00001 && customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude > -0.0001) {
-                            // TODO: Move chunk of code here
-                                if (self.trackLocation) {
-                                    print("Ghost Nearby!")
-                                    UIDevice.vibrate()
-                                    self.trackLocation = false
-                                    self.locationManager!.stopUpdatingLocation()
-                                    let arVC = ARSceneViewController()
-                                    arVC.delegate = self
-                                    navigationController?.pushViewController(arVC, animated: true)
-                                }
+                            // TODO: CODE GOES HERE
                         }
                 }
             }

@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let viewController = MapViewController()
-        //let viewController = StartUpViewController()
+        //let viewController = MapViewController()
+        let viewController = StartUpViewController()
         window?.rootViewController = UINavigationController(rootViewController: viewController)
         TimerModel.sharedTimer.startOneSecondTimer {
             let timeElapsed = TimerModel.sharedTimer.getTimeElapsed()
