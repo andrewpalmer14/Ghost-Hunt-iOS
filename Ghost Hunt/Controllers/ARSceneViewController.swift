@@ -27,7 +27,8 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
     var delegate: ARGhostNodeDelegate!
     var animations = [String : CAAnimation]()
     var idle:Bool = true
-    var focusSquare = FocusSquare() // creates the focus square
+    var focusSquare = FocusSquare() //** creates the focus square
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -38,11 +39,11 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.isHidden = false
         //TODO: On runtime this value equals nil so the app tries pushing to the camera but fails. 
-        sceneView.scene.rootNode.addChildNode(focusSquare)
         ghostModel = delegate.getCurrentGhost()
         navigationItem.title = "\(ghostModel.ghostName)"
         sceneView = ARSCNView(frame: view.frame)
         view = sceneView
+        sceneView.scene.rootNode.addChildNode(focusSquare)
         sceneView.delegate = self
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
