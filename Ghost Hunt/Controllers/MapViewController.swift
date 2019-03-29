@@ -189,7 +189,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userCoordinate = manager.location?.coordinate {
             if ghostIndex == 0 {    //TODO: Remove this line, testing purposes only
-                if self.trackLocation { //TODO: MOVE THIS BACK INTO LOCAtION TEST
+                if self.trackLocation { //TODO: MOVE THIS BACK INTO LOCATION TEST
                     print("Ghost Nearby!")
                     UIDevice.vibrate()
                     self.trackLocation = false

@@ -14,7 +14,6 @@
 		7D82279221A671E900D084ED /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82279121A671E900D084ED /* ARSceneViewController.swift */; };
 		7D8227B521A6858600D084ED /* GhostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8227B421A6858600D084ED /* GhostModel.swift */; };
 		7D8227B721A687F300D084ED /* GhostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8227B621A687F300D084ED /* GhostListViewController.swift */; };
-		7DD9D1302249DD1900451257 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD9D12F2249DD1800451257 /* Utilities.swift */; };
 		9804470B21ACC2E70065B5CD /* round_wallpaper_black_36pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9804470821ACC2E60065B5CD /* round_wallpaper_black_36pt_1x.png */; };
 		9804470C21ACC2E70065B5CD /* round_wallpaper_black_36pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9804470921ACC2E60065B5CD /* round_wallpaper_black_36pt_2x.png */; };
 		9804470D21ACC2E70065B5CD /* round_wallpaper_black_36pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9804470A21ACC2E70065B5CD /* round_wallpaper_black_36pt_3x.png */; };
@@ -40,6 +39,7 @@
 		981A0EA221A6375A00225504 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981A0EA121A6375A00225504 /* TimerModel.swift */; };
 		98229A6521E58025000AA1BF /* UpdateGhostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98229A6421E58025000AA1BF /* UpdateGhostsViewController.swift */; };
 		98229A8B21E59190000AA1BF /* GhostHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98229A8921E59190000AA1BF /* GhostHunt.xcdatamodeld */; };
+		984E501A224E8EAB003A58A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E5019224E8EAB003A58A5 /* Utilities.swift */; };
 		987E005721A4FD0E002B3156 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987E005621A4FD0E002B3156 /* MapKit.framework */; };
 		987E005C21A5341A002B3156 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987E005B21A5341A002B3156 /* TimerViewController.swift */; };
 		988FF9A721E420350039DBB1 /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FF9A621E420350039DBB1 /* Ghost.swift */; };
@@ -67,7 +67,6 @@
 		7D82279121A671E900D084ED /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
 		7D8227B421A6858600D084ED /* GhostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostModel.swift; sourceTree = "<group>"; };
 		7D8227B621A687F300D084ED /* GhostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostListViewController.swift; sourceTree = "<group>"; };
-		7DD9D12F2249DD1800451257 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../../../../Downloads/Handling3DInteractionAndUIControlsInAugmentedReality/ARKitInteraction/Utilities/Utilities.swift; sourceTree = "<group>"; };
 		9804470821ACC2E60065B5CD /* round_wallpaper_black_36pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round_wallpaper_black_36pt_1x.png; sourceTree = "<group>"; };
 		9804470921ACC2E60065B5CD /* round_wallpaper_black_36pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round_wallpaper_black_36pt_2x.png; sourceTree = "<group>"; };
 		9804470A21ACC2E70065B5CD /* round_wallpaper_black_36pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round_wallpaper_black_36pt_3x.png; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		981A0EA121A6375A00225504 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		98229A6421E58025000AA1BF /* UpdateGhostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGhostsViewController.swift; sourceTree = "<group>"; };
 		98229A8A21E59190000AA1BF /* GhostHunt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GhostHunt.xcdatamodel; sourceTree = "<group>"; };
+		984E5019224E8EAB003A58A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		987E005621A4FD0E002B3156 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		987E005B21A5341A002B3156 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		988FF9A621E420350039DBB1 /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		7DD9D12E2249DD0200451257 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				7DD9D12F2249DD1800451257 /* Utilities.swift */,
+				984E5019224E8EAB003A58A5 /* Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -354,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				984E501A224E8EAB003A58A5 /* Utilities.swift in Sources */,
 				7D8227B721A687F300D084ED /* GhostListViewController.swift in Sources */,
 				7D82279221A671E900D084ED /* ARSceneViewController.swift in Sources */,
 				98229A8B21E59190000AA1BF /* GhostHunt.xcdatamodeld in Sources */,
@@ -367,7 +368,6 @@
 				98E5227C21ED9D4700724C45 /* ARFightSceneViewController.swift in Sources */,
 				98CF111B21E7EC4F00819085 /* InmateViewController.swift in Sources */,
 				7D3EF7452249DAF600EAC4C5 /* FocusSquareSegment.swift in Sources */,
-				7DD9D1302249DD1900451257 /* Utilities.swift in Sources */,
 				7D3EF7462249DAF600EAC4C5 /* FocusSquare.swift in Sources */,
 				9804470F21ACC4AD0065B5CD /* ImageRecognitionViewController.swift in Sources */,
 				98229A6521E58025000AA1BF /* UpdateGhostsViewController.swift in Sources */,
@@ -510,7 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9L92D8YMNT;
+				DEVELOPMENT_TEAM = 85ZXRYZ5QH;
 				INFOPLIST_FILE = "Ghost Hunt/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,7 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9L92D8YMNT;
+				DEVELOPMENT_TEAM = 85ZXRYZ5QH;
 				INFOPLIST_FILE = "Ghost Hunt/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
