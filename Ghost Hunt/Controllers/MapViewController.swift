@@ -17,6 +17,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let defaultNames: [String] = ["Earnest Walrath", "Raymond Snowden", "Douglas Van Vlack", "Samuel Bruner", "Troy Powell", "Ghost 6", "Ghost 7", "Ghost 8"]
     let defaultBios: [String] = ["default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio"]
     let defaultLocations: [String] = ["location1", "location2", "location3", "location4", "location5", "location6", "location7", "location8"]
+    var animationFiles = [["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
+                         ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
+                         ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
+                         ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
+                         ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
+                         ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
+                         ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
+                         ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],]
+    var animationKeys = [["stabbing", "taunt", "defeated", "praying"],
+                          ["stabbing", "taunt", "defeated", "praying"],
+                          ["stabbing", "taunt", "defeated", "praying"],
+                          ["stabbing", "taunt", "defeated", "praying"],
+                          ["stabbing", "taunt", "defeated", "praying"],
+                          ["stabbing", "taunt", "defeated", "praying"],
+                          ["stabbing", "taunt", "defeated", "praying"],
+                          ["stabbing", "taunt", "defeated", "praying"]]
     let pinIconNames: [String] = ["", ""]
     let profilePicNames: [String] = ["", ""]
     
@@ -108,7 +124,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let ghostPoints: Int = ghost.value(forKey: "points") as! Int
         
         // using values to create models
-        let ghostModel = GhostModel(fileName: ghostFileName, ghostName: ghostName, ghostYear: "1887", ghostBio: ghostBio, ghostLocation: ghostLocation, ghostPoints: ghostPoints, locked: true)
+        let ghostModel = GhostModel(fileName: ghostFileName, ghostName: ghostName, ghostYear: "1887", ghostBio: ghostBio, ghostLocation: ghostLocation, ghostPoints: ghostPoints, locked: true, animationKeys: [], animationFiles: [])
         ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
         self.ghostObjects.append(ghostModel)
         if (ghostObjects.count == 1) {
@@ -121,7 +137,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func setDefaultGhosts() {
         for i in 0...7 {
             // using hard coded default values to create models
-            let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true) 
+            let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true, animationKeys: animationKeys[i], animationFiles: animationFiles[i])
             ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
             self.ghostObjects.append(ghostModel)
             if (ghostObjects.count == 1) {

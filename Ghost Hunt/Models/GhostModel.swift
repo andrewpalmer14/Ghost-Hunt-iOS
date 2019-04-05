@@ -20,6 +20,8 @@ class GhostModel : NSObject {
     var ghostPoints: Int = 0
     var locked:Bool = true
     var image:UIImage?
+    var animationKeys:[String] = []
+    var animationFiles:[String] = []
     
     enum Model: String {
         case Model1 = "model1"  //Ernest Walrath
@@ -59,7 +61,7 @@ class GhostModel : NSObject {
         case Location16 = "location16"
     }
     
-    init(fileName: String, ghostName: String, ghostYear: String, ghostBio:String, ghostLocation:String, ghostPoints:Int, locked: Bool) {
+    init(fileName: String, ghostName: String, ghostYear: String, ghostBio:String, ghostLocation:String, ghostPoints:Int, locked: Bool, animationKeys: [String], animationFiles: [String]) {
         super.init()
         // Initialize stored properties.
         self.fileName = self.getModel(modelString: fileName)
@@ -70,6 +72,8 @@ class GhostModel : NSObject {
         self.ghostLocation = self.getLocation(locationString: ghostLocation)
         self.ghostPoints = ghostPoints
         self.locked = locked
+        self.animationKeys = animationKeys
+        self.animationFiles = animationFiles
     }
     
     func getDirName(modelString: String) -> String {
