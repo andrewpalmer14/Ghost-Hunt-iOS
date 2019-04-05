@@ -17,7 +17,8 @@ protocol ARGhostNodeDelegate {
 
 class ARSceneViewController: UIViewController, ARSCNViewDelegate {
 
-    var sceneView: ARSCNView!   // ar scene view
+    //var sceneView: ARSCNView!   // ar scene view
+    var sceneView: VirtualObjectARView! //** focus square scene view
     var ghostNode: SCNNode?    // ghost node in scene
     var button: SCNNode?    // ar button
     var uiMarker: SCNNode?   // ar ui marker
@@ -29,9 +30,26 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
     var idle:Bool = true
     var focusSquare = FocusSquare() //** creates the focus square
     
+    let updateQueue = DispatchQueue(label: "com.example.apple-samplecode.arkitexample.serialSceneKitQueue")//** update queue
+    
+    var screenCenter: CGPoint { //**
+        let bounds = sceneView.bounds
+        return CGPoint(x: bounds.midX, y: bounds.midY)
+    }
+    
+    var session: ARSession { //**
+        return sceneView.session
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIApplication.shared.isIdleTimerDisabled = true
+        resetTracking()
     }
     
     // sets up ar scene view
@@ -41,10 +59,13 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
         //TODO: On runtime this value equals nil so the app tries pushing to the camera but fails. 
         ghostModel = delegate.getCurrentGhost()
         navigationItem.title = "\(ghostModel.ghostName)"
-        sceneView = ARSCNView(frame: view.frame)
+        sceneView = VirtualObjectARView()//ARSCNView(frame: view.frame)
         view = sceneView
         sceneView.scene.rootNode.addChildNode(focusSquare)
         sceneView.delegate = self
+        sceneView.session.delegate = self
+        setupCamera()
+        sceneView.setupDirectionalLighting(queue: updateQueue)
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
         //sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
@@ -79,6 +100,49 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    //**
+    func setupCamera() {
+        guard let camera = sceneView.pointOfView?.camera else {
+            fatalError("Expected a valid `pointOfView` from the scene.")
+        }
+        camera.wantsHDR = true
+        camera.exposureOffset = -1
+        camera.minimumExposure = -1
+        camera.maximumExposure = 3
+    }
+    
+    //**
+    func resetTracking() {
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal]
+        if #available(iOS 12.0, *) {
+            configuration.environmentTexturing = .automatic
+        }
+        session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
+    //**
+    func updateFocusSquare(isObjectVisible: Bool) {
+        if isObjectVisible {
+            focusSquare.hide()
+        } else {
+            focusSquare.unhide()
+        }
+        
+        if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
+            let result = self.sceneView.smartHitTest(screenCenter) {
+            updateQueue.async {
+                self.sceneView.scene.rootNode.addChildNode(self.focusSquare)
+                self.focusSquare.state = .detecting(hitTestResult: result, camera: camera)
+            }
+        } else {
+            updateQueue.async {
+                self.focusSquare.state = .initializing
+                self.sceneView.pointOfView?.addChildNode(self.focusSquare)
+            }
+        }
+    }
+    
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
@@ -111,6 +175,8 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
             ghost.position = SCNVector3(x,y - 1,z - 1)
             self.ghostNode = ghost
             node.addChildNode(ghost)
+            //focusSquare.hide()
+            focusSquare.isHidden = true
             
             // Load all the DAE animations
             // TODO: Add animation selection to website and ghost model so animations can be

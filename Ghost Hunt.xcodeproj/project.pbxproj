@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		7D31D2C921CD9C5100E23951 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31D2C821CD9C5100E23951 /* StartUpViewController.swift */; };
 		7D31D2CB21CD9C5F00E23951 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31D2CA21CD9C5F00E23951 /* WarningViewController.swift */; };
-		7D3EF7452249DAF600EAC4C5 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3EF7432249DAF500EAC4C5 /* FocusSquareSegment.swift */; };
-		7D3EF7462249DAF600EAC4C5 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3EF7442249DAF500EAC4C5 /* FocusSquare.swift */; };
 		7D82279221A671E900D084ED /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82279121A671E900D084ED /* ARSceneViewController.swift */; };
 		7D8227B521A6858600D084ED /* GhostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8227B421A6858600D084ED /* GhostModel.swift */; };
 		7D8227B721A687F300D084ED /* GhostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8227B621A687F300D084ED /* GhostListViewController.swift */; };
@@ -39,10 +37,14 @@
 		981A0EA221A6375A00225504 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981A0EA121A6375A00225504 /* TimerModel.swift */; };
 		98229A6521E58025000AA1BF /* UpdateGhostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98229A6421E58025000AA1BF /* UpdateGhostsViewController.swift */; };
 		98229A8B21E59190000AA1BF /* GhostHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98229A8921E59190000AA1BF /* GhostHunt.xcdatamodeld */; };
-		984E501A224E8EAB003A58A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E5019224E8EAB003A58A5 /* Utilities.swift */; };
 		987E005721A4FD0E002B3156 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987E005621A4FD0E002B3156 /* MapKit.framework */; };
 		987E005C21A5341A002B3156 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987E005B21A5341A002B3156 /* TimerViewController.swift */; };
 		988FF9A721E420350039DBB1 /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FF9A621E420350039DBB1 /* Ghost.swift */; };
+		9897319D2256ED0C004C86D7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897319C2256ED0C004C86D7 /* Utilities.swift */; };
+		989731A02256ED2D004C86D7 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897319E2256ED2D004C86D7 /* FocusSquareSegment.swift */; };
+		989731A12256ED2D004C86D7 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897319F2256ED2D004C86D7 /* FocusSquare.swift */; };
+		989731AA2256EE2F004C86D7 /* ViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989731A82256EE2F004C86D7 /* ViewController+ARSCNViewDelegate.swift */; };
+		989731AB2256EE2F004C86D7 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989731A92256EE2F004C86D7 /* VirtualObjectARView.swift */; };
 		989C09A621EAD27B00A093E4 /* inmates.png in Resources */ = {isa = PBXBuildFile; fileRef = 989C09A521EAD27B00A093E4 /* inmates.png */; };
 		98A30A3421A5F03600660051 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A30A3321A5F03600660051 /* CustomPointAnnotation.swift */; };
 		98B5697921A9F98D00B63C9E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 98B5697821A9F98D00B63C9E /* art.scnassets */; };
@@ -62,8 +64,6 @@
 /* Begin PBXFileReference section */
 		7D31D2C821CD9C5100E23951 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		7D31D2CA21CD9C5F00E23951 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
-		7D3EF7432249DAF500EAC4C5 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
-		7D3EF7442249DAF500EAC4C5 /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		7D82279121A671E900D084ED /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
 		7D8227B421A6858600D084ED /* GhostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostModel.swift; sourceTree = "<group>"; };
 		7D8227B621A687F300D084ED /* GhostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostListViewController.swift; sourceTree = "<group>"; };
@@ -92,10 +92,14 @@
 		981A0EA121A6375A00225504 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		98229A6421E58025000AA1BF /* UpdateGhostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGhostsViewController.swift; sourceTree = "<group>"; };
 		98229A8A21E59190000AA1BF /* GhostHunt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GhostHunt.xcdatamodel; sourceTree = "<group>"; };
-		984E5019224E8EAB003A58A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		987E005621A4FD0E002B3156 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		987E005B21A5341A002B3156 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		988FF9A621E420350039DBB1 /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
+		9897319C2256ED0C004C86D7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		9897319E2256ED2D004C86D7 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
+		9897319F2256ED2D004C86D7 /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
+		989731A82256EE2F004C86D7 /* ViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		989731A92256EE2F004C86D7 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
 		989C09A521EAD27B00A093E4 /* inmates.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inmates.png; sourceTree = "<group>"; };
 		98A30A3321A5F03600660051 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		98B5697821A9F98D00B63C9E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -126,15 +130,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D1DF88A2249D9D700CF3842 /* Focus Square */ = {
-			isa = PBXGroup;
-			children = (
-				7D3EF7442249DAF500EAC4C5 /* FocusSquare.swift */,
-				7D3EF7432249DAF500EAC4C5 /* FocusSquareSegment.swift */,
-			);
-			path = "Focus Square";
-			sourceTree = "<group>";
-		};
 		7D8227B321A6857300D084ED /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,14 +139,6 @@
 				988FF9A621E420350039DBB1 /* Ghost.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		7DD9D12E2249DD0200451257 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				984E5019224E8EAB003A58A5 /* Utilities.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		981A0E5221A61D1300225504 /* Icons */ = {
@@ -203,6 +190,8 @@
 				98B87DC7219F5D2F008D5E9B /* MapViewController.swift */,
 				987E005B21A5341A002B3156 /* TimerViewController.swift */,
 				7D82279121A671E900D084ED /* ARSceneViewController.swift */,
+				989731A82256EE2F004C86D7 /* ViewController+ARSCNViewDelegate.swift */,
+				989731A92256EE2F004C86D7 /* VirtualObjectARView.swift */,
 				7D8227B621A687F300D084ED /* GhostListViewController.swift */,
 				9804470E21ACC4AD0065B5CD /* ImageRecognitionViewController.swift */,
 				7D31D2C821CD9C5100E23951 /* StartUpViewController.swift */,
@@ -212,6 +201,23 @@
 				98E5227B21ED9D4700724C45 /* ARFightSceneViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9897319A2256ECC1004C86D7 /* Focus Square */ = {
+			isa = PBXGroup;
+			children = (
+				9897319F2256ED2D004C86D7 /* FocusSquare.swift */,
+				9897319E2256ED2D004C86D7 /* FocusSquareSegment.swift */,
+			);
+			path = "Focus Square";
+			sourceTree = "<group>";
+		};
+		9897319B2256ECFD004C86D7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9897319C2256ED0C004C86D7 /* Utilities.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		98B87DB9219F5D2F008D5E9B = {
@@ -234,8 +240,8 @@
 		98B87DC4219F5D2F008D5E9B /* Ghost Hunt */ = {
 			isa = PBXGroup;
 			children = (
-				7DD9D12E2249DD0200451257 /* Utilities */,
-				7D1DF88A2249D9D700CF3842 /* Focus Square */,
+				9897319B2256ECFD004C86D7 /* Utilities */,
+				9897319A2256ECC1004C86D7 /* Focus Square */,
 				98229A8921E59190000AA1BF /* GhostHunt.xcdatamodeld */,
 				98B5697821A9F98D00B63C9E /* art.scnassets */,
 				7D8227B321A6857300D084ED /* Models */,
@@ -354,21 +360,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				984E501A224E8EAB003A58A5 /* Utilities.swift in Sources */,
+				989731AB2256EE2F004C86D7 /* VirtualObjectARView.swift in Sources */,
 				7D8227B721A687F300D084ED /* GhostListViewController.swift in Sources */,
 				7D82279221A671E900D084ED /* ARSceneViewController.swift in Sources */,
 				98229A8B21E59190000AA1BF /* GhostHunt.xcdatamodeld in Sources */,
 				98B87DC8219F5D2F008D5E9B /* MapViewController.swift in Sources */,
 				987E005C21A5341A002B3156 /* TimerViewController.swift in Sources */,
 				7D31D2C921CD9C5100E23951 /* StartUpViewController.swift in Sources */,
+				989731A12256ED2D004C86D7 /* FocusSquare.swift in Sources */,
 				988FF9A721E420350039DBB1 /* Ghost.swift in Sources */,
+				989731AA2256EE2F004C86D7 /* ViewController+ARSCNViewDelegate.swift in Sources */,
 				7D8227B521A6858600D084ED /* GhostModel.swift in Sources */,
 				981A0EA221A6375A00225504 /* TimerModel.swift in Sources */,
 				98A30A3421A5F03600660051 /* CustomPointAnnotation.swift in Sources */,
+				9897319D2256ED0C004C86D7 /* Utilities.swift in Sources */,
 				98E5227C21ED9D4700724C45 /* ARFightSceneViewController.swift in Sources */,
 				98CF111B21E7EC4F00819085 /* InmateViewController.swift in Sources */,
-				7D3EF7452249DAF600EAC4C5 /* FocusSquareSegment.swift in Sources */,
-				7D3EF7462249DAF600EAC4C5 /* FocusSquare.swift in Sources */,
+				989731A02256ED2D004C86D7 /* FocusSquareSegment.swift in Sources */,
 				9804470F21ACC4AD0065B5CD /* ImageRecognitionViewController.swift in Sources */,
 				98229A6521E58025000AA1BF /* UpdateGhostsViewController.swift in Sources */,
 				98B87DC6219F5D2F008D5E9B /* AppDelegate.swift in Sources */,
