@@ -14,9 +14,11 @@ import CoreData
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ARGhostNodeDelegate, GhostModelsDelegate, GhostModelDelegate {
     
     let defaultFileNames: [String] = ["model1", "model2", "model3", "model4", "model5", "model6", "model7", "model8"]
-    let defaultNames: [String] = ["Snowden", "Ghost 2", "Ghost 3", "Ghost 4", "Ghost 5", "Ghost 6", "Ghost 7", "Ghost 8"]
+    let defaultNames: [String] = ["Earnest Walrath", "Raymond Snowden", "Douglas Van Vlack", "Samuel Bruner", "Troy Powell", "Ghost 6", "Ghost 7", "Ghost 8"]
     let defaultBios: [String] = ["default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio"]
     let defaultLocations: [String] = ["location1", "location2", "location3", "location4", "location5", "location6", "location7", "location8"]
+    let pinIconNames: [String] = ["", ""]
+    let profilePicNames: [String] = ["", ""]
     
     var customPins: [CustomPointAnnotation] = []
     

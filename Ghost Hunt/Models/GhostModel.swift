@@ -22,7 +22,7 @@ class GhostModel : NSObject {
     var image:UIImage?
     
     enum Model: String {
-        case Model1 = "model1"
+        case Model1 = "model1"  //Ernest Walrath
         case Model2 = "model2"
         case Model3 = "model3"
         case Model4 = "model4"
@@ -76,7 +76,7 @@ class GhostModel : NSObject {
         if let name = Model.init(rawValue: modelString) {
             switch name {
             case .Model1:
-                return "Ghost1"
+                return "Ghost1" //Ernest Walrath
             case .Model2:
                 return "Ghost2"
             case .Model3:
@@ -117,7 +117,7 @@ class GhostModel : NSObject {
             switch model {
                 
             case .Model1:
-                return "ghost1.scn"
+                return "ghost1.scn" //Ernest Walrath
             case .Model2:
                 return "ghost2.scn"
             case .Model3:
