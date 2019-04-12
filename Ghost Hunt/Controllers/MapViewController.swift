@@ -33,7 +33,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                           ["stabbing", "taunt", "defeated", "praying"],
                           ["stabbing", "taunt", "defeated", "praying"],
                           ["stabbing", "taunt", "defeated", "praying"]]
-    let pinIconNames: [String] = ["", ""]
+    let pinIconNames: [String] = ["Ernest_Walrath_icon", "Raymond_Snowden_icon.png",
+                                  "Douglas_Van_Vlack_icon.png", "Sam_Burner_icon.png",
+                                  "Troy_Powell_icon.png", "",
+                                  "", ""]
     let profilePicNames: [String] = ["", ""]
     
     var customPins: [CustomPointAnnotation] = []

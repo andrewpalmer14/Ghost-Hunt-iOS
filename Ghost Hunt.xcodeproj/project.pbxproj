@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0EBE3B225C5C670002DC7F /* Troy_Powell_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE35225C5C670002DC7F /* Troy_Powell_icon.png */; };
+		7D0EBE3C225C5C670002DC7F /* William_Wild_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE36225C5C670002DC7F /* William_Wild_icon.png */; };
+		7D0EBE3D225C5C670002DC7F /* Robert_Lee_Tisdel_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE37225C5C670002DC7F /* Robert_Lee_Tisdel_icon.png */; };
+		7D0EBE3E225C5C670002DC7F /* Ed_Rice_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE38225C5C670002DC7F /* Ed_Rice_icon.png */; };
+		7D0EBE3F225C5C670002DC7F /* Ernest_Walrath_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE39225C5C670002DC7F /* Ernest_Walrath_icon.png */; };
+		7D0EBE40225C5C670002DC7F /* Sam_Bruner_ icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE3A225C5C670002DC7F /* Sam_Bruner_ icon.png */; };
+		7D0EBE51225D6C870002DC7F /* Jewell_Freng_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE41225D6C860002DC7F /* Jewell_Freng_icon.png */; };
+		7D0EBE52225D6C870002DC7F /* Douglas_Van_Vlack_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE42225D6C860002DC7F /* Douglas_Van_Vlack_icon.png */; };
+		7D0EBE53225D6C870002DC7F /* John_Jurko_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE43225D6C860002DC7F /* John_Jurko_icon.png */; };
+		7D0EBE54225D6C870002DC7F /* Morsagaray_Ignacio_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE44225D6C870002DC7F /* Morsagaray_Ignacio_icon.png */; };
+		7D0EBE55225D6C870002DC7F /* George_Hamilton_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE45225D6C870002DC7F /* George_Hamilton_icon.png */; };
+		7D0EBE56225D6C870002DC7F /* Jones_Frank_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE46225D6C870002DC7F /* Jones_Frank_icon.png */; };
+		7D0EBE57225D6C870002DC7F /* Mike_Penford_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE47225D6C870002DC7F /* Mike_Penford_icon.png */; };
+		7D0EBE58225D6C870002DC7F /* James_Conners_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE48225D6C870002DC7F /* James_Conners_icon.png */; };
+		7D0EBE59225D6C870002DC7F /* Raymond_Snowden_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE49225D6C870002DC7F /* Raymond_Snowden_icon.png */; };
+		7D0EBE5A225D6C870002DC7F /* Joseph_Hayes_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE4A225D6C870002DC7F /* Joseph_Hayes_icon.png */; };
+		7D0EBE5B225D6C870002DC7F /* Samaniego_Roberto_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE4B225D6C870002DC7F /* Samaniego_Roberto_icon.png */; };
+		7D0EBE5C225D6C870002DC7F /* William_Fred_Bond_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE4C225D6C870002DC7F /* William_Fred_Bond_icon.png */; };
+		7D0EBE5D225D6C870002DC7F /* Frisbee_Frank_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE4D225D6C870002DC7F /* Frisbee_Frank_icon.png */; };
+		7D0EBE5E225D6C870002DC7F /* Fred_Seward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE4E225D6C870002DC7F /* Fred_Seward_icon.png */; };
+		7D0EBE5F225D6C870002DC7F /* Ulyssus_Bearup_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE4F225D6C870002DC7F /* Ulyssus_Bearup_icon.png */; };
+		7D0EBE60225D6C870002DC7F /* Noah_Arnold_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EBE50225D6C870002DC7F /* Noah_Arnold_icon.png */; };
+		7D0EBE62226126E20002DC7F /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0EBE61226126E20002DC7F /* HowToPlayViewController.swift */; };
 		7D31D2C921CD9C5100E23951 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31D2C821CD9C5100E23951 /* StartUpViewController.swift */; };
 		7D31D2CB21CD9C5F00E23951 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31D2CA21CD9C5F00E23951 /* WarningViewController.swift */; };
 		7D82279221A671E900D084ED /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82279121A671E900D084ED /* ARSceneViewController.swift */; };
@@ -62,6 +85,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D0EBE35225C5C670002DC7F /* Troy_Powell_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Troy_Powell_icon.png; path = "../../../../../Downloads/New folder/Troy_Powell_icon.png"; sourceTree = "<group>"; };
+		7D0EBE36225C5C670002DC7F /* William_Wild_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = William_Wild_icon.png; path = "../../../../../Downloads/New folder/William_Wild_icon.png"; sourceTree = "<group>"; };
+		7D0EBE37225C5C670002DC7F /* Robert_Lee_Tisdel_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Robert_Lee_Tisdel_icon.png; path = "../../../../../Downloads/New folder/Robert_Lee_Tisdel_icon.png"; sourceTree = "<group>"; };
+		7D0EBE38225C5C670002DC7F /* Ed_Rice_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ed_Rice_icon.png; path = "../../../../../Downloads/New folder/Ed_Rice_icon.png"; sourceTree = "<group>"; };
+		7D0EBE39225C5C670002DC7F /* Ernest_Walrath_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ernest_Walrath_icon.png; path = "../../../../../Downloads/New folder/Ernest_Walrath_icon.png"; sourceTree = "<group>"; };
+		7D0EBE3A225C5C670002DC7F /* Sam_Bruner_ icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Sam_Bruner_ icon.png"; path = "../../../../../Downloads/New folder/Sam_Bruner_ icon.png"; sourceTree = "<group>"; };
+		7D0EBE41225D6C860002DC7F /* Jewell_Freng_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jewell_Freng_icon.png; path = "../../../../../Downloads/icons 2/Jewell_Freng_icon.png"; sourceTree = "<group>"; };
+		7D0EBE42225D6C860002DC7F /* Douglas_Van_Vlack_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Douglas_Van_Vlack_icon.png; path = "../../../../../Downloads/icons 2/Douglas_Van_Vlack_icon.png"; sourceTree = "<group>"; };
+		7D0EBE43225D6C860002DC7F /* John_Jurko_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = John_Jurko_icon.png; path = "../../../../../Downloads/icons 2/John_Jurko_icon.png"; sourceTree = "<group>"; };
+		7D0EBE44225D6C870002DC7F /* Morsagaray_Ignacio_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Morsagaray_Ignacio_icon.png; path = "../../../../../Downloads/icons 2/Morsagaray_Ignacio_icon.png"; sourceTree = "<group>"; };
+		7D0EBE45225D6C870002DC7F /* George_Hamilton_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = George_Hamilton_icon.png; path = "../../../../../Downloads/icons 2/George_Hamilton_icon.png"; sourceTree = "<group>"; };
+		7D0EBE46225D6C870002DC7F /* Jones_Frank_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jones_Frank_icon.png; path = "../../../../../Downloads/icons 2/Jones_Frank_icon.png"; sourceTree = "<group>"; };
+		7D0EBE47225D6C870002DC7F /* Mike_Penford_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mike_Penford_icon.png; path = "../../../../../Downloads/icons 2/Mike_Penford_icon.png"; sourceTree = "<group>"; };
+		7D0EBE48225D6C870002DC7F /* James_Conners_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = James_Conners_icon.png; path = "../../../../../Downloads/icons 2/James_Conners_icon.png"; sourceTree = "<group>"; };
+		7D0EBE49225D6C870002DC7F /* Raymond_Snowden_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Raymond_Snowden_icon.png; path = "../../../../../Downloads/icons 2/Raymond_Snowden_icon.png"; sourceTree = "<group>"; };
+		7D0EBE4A225D6C870002DC7F /* Joseph_Hayes_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Joseph_Hayes_icon.png; path = "../../../../../Downloads/icons 2/Joseph_Hayes_icon.png"; sourceTree = "<group>"; };
+		7D0EBE4B225D6C870002DC7F /* Samaniego_Roberto_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Samaniego_Roberto_icon.png; path = "../../../../../Downloads/icons 2/Samaniego_Roberto_icon.png"; sourceTree = "<group>"; };
+		7D0EBE4C225D6C870002DC7F /* William_Fred_Bond_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = William_Fred_Bond_icon.png; path = "../../../../../Downloads/icons 2/William_Fred_Bond_icon.png"; sourceTree = "<group>"; };
+		7D0EBE4D225D6C870002DC7F /* Frisbee_Frank_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Frisbee_Frank_icon.png; path = "../../../../../Downloads/icons 2/Frisbee_Frank_icon.png"; sourceTree = "<group>"; };
+		7D0EBE4E225D6C870002DC7F /* Fred_Seward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fred_Seward_icon.png; path = "../../../../../Downloads/icons 2/Fred_Seward_icon.png"; sourceTree = "<group>"; };
+		7D0EBE4F225D6C870002DC7F /* Ulyssus_Bearup_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ulyssus_Bearup_icon.png; path = "../../../../../Downloads/icons 2/Ulyssus_Bearup_icon.png"; sourceTree = "<group>"; };
+		7D0EBE50225D6C870002DC7F /* Noah_Arnold_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Noah_Arnold_icon.png; path = "../../../../../Downloads/icons 2/Noah_Arnold_icon.png"; sourceTree = "<group>"; };
+		7D0EBE61226126E20002DC7F /* HowToPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
 		7D31D2C821CD9C5100E23951 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		7D31D2CA21CD9C5F00E23951 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
 		7D82279121A671E900D084ED /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +190,12 @@
 		981A0E5221A61D1300225504 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				7D0EBE38225C5C670002DC7F /* Ed_Rice_icon.png */,
+				7D0EBE39225C5C670002DC7F /* Ernest_Walrath_icon.png */,
+				7D0EBE37225C5C670002DC7F /* Robert_Lee_Tisdel_icon.png */,
+				7D0EBE3A225C5C670002DC7F /* Sam_Bruner_ icon.png */,
+				7D0EBE35225C5C670002DC7F /* Troy_Powell_icon.png */,
+				7D0EBE36225C5C670002DC7F /* William_Wild_icon.png */,
 				989C09A521EAD27B00A093E4 /* inmates.png */,
 				98CF112021E7F2B900819085 /* Stonewall-Tile.jpg */,
 				98CF111E21E7F2B400819085 /* footer-us-image.png */,
@@ -154,6 +206,22 @@
 				9804470821ACC2E60065B5CD /* round_wallpaper_black_36pt_1x.png */,
 				9804470921ACC2E60065B5CD /* round_wallpaper_black_36pt_2x.png */,
 				9804470A21ACC2E70065B5CD /* round_wallpaper_black_36pt_3x.png */,
+				7D0EBE42225D6C860002DC7F /* Douglas_Van_Vlack_icon.png */,
+				7D0EBE4E225D6C870002DC7F /* Fred_Seward_icon.png */,
+				7D0EBE4D225D6C870002DC7F /* Frisbee_Frank_icon.png */,
+				7D0EBE45225D6C870002DC7F /* George_Hamilton_icon.png */,
+				7D0EBE48225D6C870002DC7F /* James_Conners_icon.png */,
+				7D0EBE41225D6C860002DC7F /* Jewell_Freng_icon.png */,
+				7D0EBE43225D6C860002DC7F /* John_Jurko_icon.png */,
+				7D0EBE46225D6C870002DC7F /* Jones_Frank_icon.png */,
+				7D0EBE4A225D6C870002DC7F /* Joseph_Hayes_icon.png */,
+				7D0EBE47225D6C870002DC7F /* Mike_Penford_icon.png */,
+				7D0EBE44225D6C870002DC7F /* Morsagaray_Ignacio_icon.png */,
+				7D0EBE50225D6C870002DC7F /* Noah_Arnold_icon.png */,
+				7D0EBE49225D6C870002DC7F /* Raymond_Snowden_icon.png */,
+				7D0EBE4B225D6C870002DC7F /* Samaniego_Roberto_icon.png */,
+				7D0EBE4F225D6C870002DC7F /* Ulyssus_Bearup_icon.png */,
+				7D0EBE4C225D6C870002DC7F /* William_Fred_Bond_icon.png */,
 				98C583B521A7494A00E83243 /* round_arrow_drop_down_circle_black_36pt_2x.png */,
 				98C583B421A7494A00E83243 /* round_arrow_drop_down_circle_black_36pt_3x.png */,
 				980A617621A666080020543F /* round_camera_alt_black_36pt_3x.png */,
@@ -199,6 +267,7 @@
 				98229A6421E58025000AA1BF /* UpdateGhostsViewController.swift */,
 				98CF111A21E7EC4F00819085 /* InmateViewController.swift */,
 				98E5227B21ED9D4700724C45 /* ARFightSceneViewController.swift */,
+				7D0EBE61226126E20002DC7F /* HowToPlayViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -322,33 +391,55 @@
 			files = (
 				98CF111D21E7F2A600819085 /* cropped-ISHS-Header-Logos.png in Resources */,
 				981A0E9321A61F5E00225504 /* round_directions_run_black_36pt_3x.png in Resources */,
+				7D0EBE3E225C5C670002DC7F /* Ed_Rice_icon.png in Resources */,
 				9804470B21ACC2E70065B5CD /* round_wallpaper_black_36pt_1x.png in Resources */,
 				981A0E9121A61F5E00225504 /* round_view_list_black_36pt_2x.png in Resources */,
 				981A0E9D21A61F5E00225504 /* round_directions_run_black_36pt_2x.png in Resources */,
 				981A0E9521A61F5E00225504 /* round_add_circle_black_36pt_2x.png in Resources */,
 				98CF112121E7F2B900819085 /* Stonewall-Tile.jpg in Resources */,
 				981A0E9621A61F5E00225504 /* round_sentiment_very_dissatisfied_black_36pt_1x.png in Resources */,
+				7D0EBE59225D6C870002DC7F /* Raymond_Snowden_icon.png in Resources */,
 				981A0EA021A61F5E00225504 /* round_directions_run_black_36pt_1x.png in Resources */,
 				9804470D21ACC2E70065B5CD /* round_wallpaper_black_36pt_3x.png in Resources */,
+				7D0EBE60225D6C870002DC7F /* Noah_Arnold_icon.png in Resources */,
+				7D0EBE5F225D6C870002DC7F /* Ulyssus_Bearup_icon.png in Resources */,
 				98B87DD0219F5D30008D5E9B /* LaunchScreen.storyboard in Resources */,
+				7D0EBE58225D6C870002DC7F /* James_Conners_icon.png in Resources */,
+				7D0EBE3F225C5C670002DC7F /* Ernest_Walrath_icon.png in Resources */,
 				981A0E9E21A61F5E00225504 /* round_timer_black_36pt_1x.png in Resources */,
+				7D0EBE54225D6C870002DC7F /* Morsagaray_Ignacio_icon.png in Resources */,
+				7D0EBE3D225C5C670002DC7F /* Robert_Lee_Tisdel_icon.png in Resources */,
 				981A0E9821A61F5E00225504 /* round_timer_black_36pt_2x.png in Resources */,
+				7D0EBE5A225D6C870002DC7F /* Joseph_Hayes_icon.png in Resources */,
 				98B5697921A9F98D00B63C9E /* art.scnassets in Resources */,
+				7D0EBE3C225C5C670002DC7F /* William_Wild_icon.png in Resources */,
+				7D0EBE5D225D6C870002DC7F /* Frisbee_Frank_icon.png in Resources */,
 				98C583B721A7494B00E83243 /* round_arrow_drop_down_circle_black_36pt_3x.png in Resources */,
 				980A617821A666080020543F /* round_camera_alt_black_36pt_1x.png in Resources */,
 				981A0E9F21A61F5E00225504 /* round_sentiment_very_dissatisfied_black_36pt_3x.png in Resources */,
+				7D0EBE51225D6C870002DC7F /* Jewell_Freng_icon.png in Resources */,
+				7D0EBE3B225C5C670002DC7F /* Troy_Powell_icon.png in Resources */,
 				9804470C21ACC2E70065B5CD /* round_wallpaper_black_36pt_2x.png in Resources */,
 				98C583B821A7494B00E83243 /* round_arrow_drop_down_circle_black_36pt_2x.png in Resources */,
+				7D0EBE52225D6C870002DC7F /* Douglas_Van_Vlack_icon.png in Resources */,
 				981A0E9721A61F5E00225504 /* round_sentiment_very_dissatisfied_black_36pt_2x.png in Resources */,
 				981A0E9221A61F5E00225504 /* round_timer_black_36pt_3x.png in Resources */,
 				98C583B921A7494B00E83243 /* round_arrow_drop_down_circle_black_36pt_1x.png in Resources */,
+				7D0EBE53225D6C870002DC7F /* John_Jurko_icon.png in Resources */,
+				7D0EBE57225D6C870002DC7F /* Mike_Penford_icon.png in Resources */,
 				981A0E9021A61F5E00225504 /* round_add_circle_black_36pt_3x.png in Resources */,
 				989C09A621EAD27B00A093E4 /* inmates.png in Resources */,
 				98CF111F21E7F2B400819085 /* footer-us-image.png in Resources */,
 				981A0E9921A61F5E00225504 /* round_view_list_black_36pt_3x.png in Resources */,
 				980A617921A666080020543F /* round_camera_alt_black_36pt_3x.png in Resources */,
+				7D0EBE56225D6C870002DC7F /* Jones_Frank_icon.png in Resources */,
+				7D0EBE5C225D6C870002DC7F /* William_Fred_Bond_icon.png in Resources */,
+				7D0EBE5E225D6C870002DC7F /* Fred_Seward_icon.png in Resources */,
+				7D0EBE5B225D6C870002DC7F /* Samaniego_Roberto_icon.png in Resources */,
 				980A617A21A666080020543F /* round_camera_alt_black_36pt_2x.png in Resources */,
+				7D0EBE40225C5C670002DC7F /* Sam_Bruner_ icon.png in Resources */,
 				981A0E8F21A61F5E00225504 /* round_add_circle_black_36pt_1x.png in Resources */,
+				7D0EBE55225D6C870002DC7F /* George_Hamilton_icon.png in Resources */,
 				981A0E9B21A61F5E00225504 /* round_view_list_black_36pt_1x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +453,7 @@
 			files = (
 				989731AB2256EE2F004C86D7 /* VirtualObjectARView.swift in Sources */,
 				7D8227B721A687F300D084ED /* GhostListViewController.swift in Sources */,
+				7D0EBE62226126E20002DC7F /* HowToPlayViewController.swift in Sources */,
 				7D82279221A671E900D084ED /* ARSceneViewController.swift in Sources */,
 				98229A8B21E59190000AA1BF /* GhostHunt.xcdatamodeld in Sources */,
 				98B87DC8219F5D2F008D5E9B /* MapViewController.swift in Sources */,

@@ -1,18 +1,19 @@
 //
-//  WarningViewController.swift
+//  HowToPlayViewController.swift
 //  Ghost Hunt
 //
-//  Created by Zachary Broeg on 12/21/18.
-//  Copyright © 2018 Andrew Palmer. All rights reserved.
+//  Created by Zachary Broeg on 4/12/19.
+//  Copyright © 2019 Andrew Palmer. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class WarningViewController: UIViewController {
-
+class HowToPlayViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         setupView()
+        setupView()
         // Do any additional setup after loading the view.
     }
     
@@ -40,10 +41,10 @@ class WarningViewController: UIViewController {
         addConstraintsWithFormat(format: "V:|-\(vertSpacing)-[v0(240)]-\(vertSpacing)-|", views: warningLabel)
         addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: startButton)
     }
-
+    
     let warningLabel: UILabel = {
         let label = UILabel()
-        label.text = "WARNING:\n\nAugmented Reality can be dangerous. Always be aware of your surroundings!"
+        label.text = "HOW TO PLAY:\n\n!"
         label.textAlignment = .center
         label.numberOfLines = 5
         label.backgroundColor = UIColor.IdahoMuseumBlue
@@ -80,7 +81,7 @@ class WarningViewController: UIViewController {
     
     @objc func continueButtonPressed() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let vc = HowToPlayViewController()
+        let vc = MapViewController()
         let navigationController = UINavigationController(rootViewController: vc)
         appDelegate.window?.rootViewController = navigationController
     }
@@ -94,5 +95,5 @@ class WarningViewController: UIViewController {
         }
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
     }
-
+    
 }
