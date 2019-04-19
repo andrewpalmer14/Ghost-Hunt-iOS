@@ -22,6 +22,7 @@ class GhostModel : NSObject {
     var image:UIImage?
     var animationKeys:[String] = []
     var animationFiles:[String] = []
+    var pinIcon:String = ""
     
     enum Model: String {
         case Model1 = "model1"  //Ernest Walrath
@@ -61,7 +62,18 @@ class GhostModel : NSObject {
         case Location16 = "location16"
     }
     
-    init(fileName: String, ghostName: String, ghostYear: String, ghostBio:String, ghostLocation:String, ghostPoints:Int, locked: Bool, animationKeys: [String], animationFiles: [String]) {
+    enum PinIcons: String {
+        case Icon1 = "pinIcon1"
+        case Icon2 = "pinIcon2"
+        case Icon3 = "pinIcon3"
+        case Icon4 = "pinIcon4"
+        case Icon5 = "pinIcon5"
+        case Icon6 = "pinIcon6"
+        case Icon7 = "pinIcon7"
+        case Icon8 = "pinIcon8"
+    }
+    
+    init(fileName: String, ghostName: String, ghostYear: String, ghostBio:String, ghostLocation:String, ghostPoints:Int, locked: Bool, animationKeys: [String], animationFiles: [String], ghostPinIcon: String) {
         super.init()
         // Initialize stored properties.
         self.fileName = self.getModel(modelString: fileName)
@@ -74,6 +86,7 @@ class GhostModel : NSObject {
         self.locked = locked
         self.animationKeys = animationKeys
         self.animationFiles = animationFiles
+        self.pinIcon = self.getPinIcon(iconString: ghostPinIcon)
     }
     
     func getDirName(modelString: String) -> String {
@@ -114,6 +127,30 @@ class GhostModel : NSObject {
             }
         }
         return "Ghost1"
+    }
+    
+    func getPinIcon(iconString: String) -> String {
+        if let pinIconString = PinIcons.init(rawValue: iconString) {
+            switch pinIconString {
+            case .Icon1:
+                return "Ernest_Walrath.png"
+            case .Icon2:
+                return "Raymond_Snowden.png"
+            case .Icon3:
+                return "Douglas_Van_Vlack.png"
+            case .Icon4:
+                return "Sam_Bruner.png"
+            case .Icon5:
+                return "Troy_Powell.png"
+            case .Icon6:
+                return "Ed_Rice.png"
+            case .Icon7:
+                return "Frank_Frisbee.png"
+            case .Icon8:
+                return "Noah_Arnold.png"
+            }
+        }
+        return "Ernest_Walrath.png"
     }
     
     func getModel(modelString: String) -> String {

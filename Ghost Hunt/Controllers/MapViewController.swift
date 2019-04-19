@@ -14,9 +14,9 @@ import CoreData
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ARGhostNodeDelegate, GhostModelsDelegate, GhostModelDelegate {
     
     let defaultFileNames: [String] = ["model1", "model2", "model3", "model4", "model5", "model6", "model7", "model8"]
-    let defaultNames: [String] = ["Earnest Walrath", "Raymond Snowden", "Douglas Van Vlack", "Samuel Bruner", "Troy Powell", "Ghost 6", "Ghost 7", "Ghost 8"]
+    let defaultNames: [String] = ["Earnest Walrath", "Raymond Snowden", "Douglas Van Vlack", "Samuel Bruner", "Troy Powell", "Ed Rice", "Frank Frisbee", "Noah Arnold"]
     let defaultBios: [String] = ["default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio", "default bio"]
-    let defaultLocations: [String] = ["location1", "location2", "location3", "location4", "location5", "location6", "location7", "location8"]
+    let defaultLocations: [String] = ["location2", "location5", "location6", "location8", "location9", "location8", "location9", "location11"]
     var animationFiles = [["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
                          ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
                          ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
@@ -33,10 +33,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                           ["stabbing", "taunt", "defeated", "praying"],
                           ["stabbing", "taunt", "defeated", "praying"],
                           ["stabbing", "taunt", "defeated", "praying"]]
-    let pinIconNames: [String] = ["Ernest_Walrath_icon", "Raymond_Snowden_icon.png",
-                                  "Douglas_Van_Vlack_icon.png", "Sam_Burner_icon.png",
-                                  "Troy_Powell_icon.png", "",
-                                  "", ""]
+    let pinIcons: [String] = ["pinIcon1", "pinIcon2",
+                                  "pinIcon3", "pinIcon4",
+                                  "pinIcon5", "pinIcon6",
+                                  "pinIcon7", "pinIcon8"]
     let profilePicNames: [String] = ["", ""]
     
     var customPins: [CustomPointAnnotation] = []
@@ -61,6 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         getCurrentGhosts()
         startUpdateTimer()
         resumeTrackingLocation()
+        refreshPins()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,6 +74,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         setupNavigationBar()
         setupMap()
         requestLocation()
+    }
+    
+    func refreshPins() {
+        for pin in customPins {
+            mapView?.removeAnnotation(pin)
+        }
+        for i in 0...ghostIndex {
+            addGhostToMap(ghostModel: ghostObjects[i])
+        }
     }
     
     // Starts timer, navigations to game over view when time runs out
@@ -125,10 +135,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let ghostBio: String = ghost.value(forKey: "bio") as! String
         let ghostLocation: String = ghost.value(forKey: "location") as! String
         let ghostPoints: Int = ghost.value(forKey: "points") as! Int
+        let ghostPinIcon: String = ghost.value(forKey: "pinIcon") as! String
         
         // using values to create models
-        let ghostModel = GhostModel(fileName: ghostFileName, ghostName: ghostName, ghostYear: "1887", ghostBio: ghostBio, ghostLocation: ghostLocation, ghostPoints: ghostPoints, locked: true, animationKeys: [], animationFiles: [])
-        ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
+        let ghostModel = GhostModel(fileName: ghostFileName, ghostName: ghostName, ghostYear: "1887", ghostBio: ghostBio, ghostLocation: ghostLocation, ghostPoints: ghostPoints, locked: true, animationKeys: [], animationFiles: [], ghostPinIcon: ghostPinIcon)
+        //ghostModel.image = UIImage(named: ghostPinIcon)
         self.ghostObjects.append(ghostModel)
         if (ghostObjects.count == 1) {
             addGhostToMap(ghostModel: ghostObjects[0])
@@ -140,8 +151,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func setDefaultGhosts() {
         for i in 0...7 {
             // using hard coded default values to create models
-            let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true, animationKeys: animationKeys[i], animationFiles: animationFiles[i])
-            ghostModel.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
+            let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true, animationKeys: animationKeys[i], animationFiles: animationFiles[i], ghostPinIcon: pinIcons[i])
+            //ghostModel.image = UIImage(named: pinIcons[i])
             self.ghostObjects.append(ghostModel)
             if (ghostObjects.count == 1) {
                 addGhostToMap(ghostModel: ghostObjects[0])
@@ -152,7 +163,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // Adds specified ghost to map
     func addGhostToMap(ghostModel: GhostModel) {
-        let ghostPin = MapViewController.generateCustomPointAnnotationWithTitle(title: ghostModel.ghostName)   // ghost  pin
+        var ghostPin: CustomPointAnnotation
+        if ghostModel.locked {
+            ghostPin = MapViewController.generateCustomPointAnnotationWithTitle(title: ghostModel.ghostName, pinIcon: "locked_\(ghostModel.pinIcon)")   // locked ghost  pin
+        } else {
+            ghostPin = MapViewController.generateCustomPointAnnotationWithTitle(title: ghostModel.ghostName, pinIcon: ghostModel.pinIcon)   // ghost  pin
+        }
         self.customPins.append(ghostPin)
         self.addCustomPinAtCoordinate(coordinate: ghostModel.ghostLocation, customPin: ghostPin)
     }
@@ -162,6 +178,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if ghostIndex < ghostObjects.count - 1 {
             ghostIndex += 1
             print("Ghost Captured! Now at index: \(ghostIndex)")
+            //let annotation = customPins[ghostIndex - 1]
+            //mapView?.removeAnnotation(annotation)
+            //addGhostToMap(ghostModel: ghostObjects[ghostIndex - 1])
+            //mapView?.addAnnotation(annotation)
+            //addGhostToMap(ghostModel: ghostObjects[ghostIndex - 1])
             addGhostToMap(ghostModel: ghostObjects[ghostIndex])
         } else {
             print("Index out of bounds")
@@ -209,17 +230,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // 37.33283141 -122.0312186
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userCoordinate = manager.location?.coordinate {
-            if ghostIndex == 0 {    //TODO: Remove this line, testing purposes only
-                if self.trackLocation { //TODO: MOVE THIS BACK INTO LOCATION TEST
-                    print("Ghost Nearby!")
-                    UIDevice.vibrate()
-                    self.trackLocation = false
-                    self.locationManager!.stopUpdatingLocation()
-                    let arVC = ARSceneViewController()
-                    arVC.delegate = self
-                    navigationController?.pushViewController(arVC, animated: true)
-                }
-            }
+            print("tracking user location")
             let finalIndex = ghostObjects.count - 1
             if ghostIndex == finalIndex && !ghostObjects[finalIndex].locked {
                 print("game won!")
@@ -242,7 +253,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 if (customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude < 0.00001 && customPins[ghostIndex].coordinate.latitude - userCoordinate.latitude > -0.0001) {
                         if (customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude < 0.00001 && customPins[ghostIndex].coordinate.longitude - userCoordinate.longitude > -0.0001) {
                             // TODO: CODE GOES HERE
-                        }
+                            if self.trackLocation { //TODO: MOVE THIS BACK INTO LOCATION TEST
+                                print("Ghost Nearby!")
+                                UIDevice.vibrate()
+                                self.trackLocation = false
+                                self.locationManager!.stopUpdatingLocation()
+                                let arVC = ARSceneViewController()
+                                arVC.delegate = self
+                                navigationController?.pushViewController(arVC, animated: true)
+                            }
+                            
+                    }
                 }
             }
         }
@@ -320,9 +341,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // returns custom point annotation
-    public static func generateCustomPointAnnotationWithTitle(title: String) -> CustomPointAnnotation {
+    public static func generateCustomPointAnnotationWithTitle(title: String, pinIcon: String) -> CustomPointAnnotation {
         let customPointAnnotation = CustomPointAnnotation()
-        customPointAnnotation.pinImage = "round_sentiment_very_dissatisfied_black_36pt_1x.png"
+        customPointAnnotation.pinImage = pinIcon
         customPointAnnotation.title = title
         customPointAnnotation.subtitle = "Wandering the area..."
         return customPointAnnotation
@@ -333,11 +354,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //print(view.annotation?.title!)
         if let ghostPin: CustomPointAnnotation = view.annotation as? CustomPointAnnotation {
             if let index = self.customPins.firstIndex(of: ghostPin) {
+                print("clicked: \(index)")
                 clickedIndex = index
                 if !self.ghostObjects[index].locked {    // TODO: flip bool for testing
                     let vc = InmateViewController()
                     vc.delegate = self as GhostModelDelegate
                     self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    UIDevice.vibrate()
+                    self.trackLocation = false
+                    self.locationManager!.stopUpdatingLocation()
+                    let arVC = ARSceneViewController()
+                    arVC.delegate = self
+                    navigationController?.pushViewController(arVC, animated: true)
                 }
             }
             
