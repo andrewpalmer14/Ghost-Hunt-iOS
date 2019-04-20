@@ -47,11 +47,12 @@ class StartUpViewController: UIViewController {
         
         
         view.addSubview(continueButton)
-        view.addSubview(updateButton)
-        let spacing = view.frame.width/2 - 160 - 8
-        addConstraintsWithFormat(format: "H:|-\(spacing)-[v0(160)]-16-[v1(160)]-\(spacing)-|", views: continueButton, updateButton)
+        //view.addSubview(updateButton)
+        let spacing = view.frame.width/2 - 320
+        print(spacing)
+        addConstraintsWithFormat(format: "H:|-\(20)-[v0]-\(20)-|", views: continueButton/*, updateButton*/)
         addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: continueButton)
-        addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: updateButton)
+        //addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: updateButton)
     }
     
     let continueButton: UIButton = {

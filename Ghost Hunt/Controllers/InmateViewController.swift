@@ -47,18 +47,19 @@ class InmateViewController : UIViewController, ARGhostNodeDelegate {
         navigationController?.navigationBar.isHidden = false
         inmateNameLabel.text = "\(ghostModel.ghostName) - \(ghostModel.ghostPoints) Points"
         inmateBioLabel.text = "\(ghostModel.ghostBio)"
+        inmateImageView.image = UIImage(named: ghostModel.profilePic)
         view.addSubview(inmateImageView)
         view.addSubview(inmateNameLabel)
         view.addSubview(inmateBioLabel)
         view.addSubview(arViewButton)
-        view.addSubview(arFightButton)
-        let spacing = self.view.frame.width/2 - 160 - 8
+        //view.addSubview(arFightButton)
+        //let spacing = self.view.frame.width/2 - 160 - 8
         addConstraintsWithFormat(format: "H:|[v0]|", views: inmateImageView)
         addConstraintsWithFormat(format: "V:|-\(60)-[v0(\(self.view.frame.width/1.92))][v1(100)][v2][v3(60)]-50-|", views: inmateImageView, inmateNameLabel, inmateBioLabel, arViewButton)
         addConstraintsWithFormat(format: "H:|[v0]|", views: inmateNameLabel)
-        addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: arFightButton)
+        //addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: arFightButton)
         addConstraintsWithFormat(format: "H:|-8-[v0]-8-|", views: inmateBioLabel)
-        addConstraintsWithFormat(format: "H:|-\(spacing)-[v0(160)]-8-[v1(160)]-\(spacing)-|", views: arViewButton, arFightButton)
+        addConstraintsWithFormat(format: "H:|-\(20)-[v0]-\(20)-|", views: arViewButton/*, arFightButton*/)
     }
     
     func getCurrentGhost() -> GhostModel {
@@ -84,7 +85,7 @@ class InmateViewController : UIViewController, ARGhostNodeDelegate {
         let label = VerticalAlignLabel()
         label.text = "This is the inmate bio"
         label.textAlignment = .left
-        label.numberOfLines = 10
+        label.numberOfLines = 30
         label.adjustsFontSizeToFitWidth = true
         return label
     }()

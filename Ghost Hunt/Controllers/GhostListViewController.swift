@@ -36,16 +36,20 @@ class GhostListViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! GhostCell
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.text = ghostModels[indexPath.row].ghostName
-        cell.detailTextLabel?.text = ghostModels[indexPath.row].ghostYear
+        cell.detailTextLabel?.text = ghostModels[indexPath.row].dod
         if (ghostModels[indexPath.row].locked) {
             cell.statusLabel.text = "Undiscovered"
-            cell.isUserInteractionEnabled = false
+            //cell.isUserInteractionEnabled = false
         } else {
             cell.statusLabel.text = "Captured!"
             cell.profileImageView.image = ghostModels[indexPath.row].image!
             cell.isUserInteractionEnabled = true
         }
-        cell.profileImageView.image = UIImage(named: "round_sentiment_very_dissatisfied_black_36pt_2x.png")
+        var statusString:String = ghostModels[indexPath.row].pinIcon
+        if ghostModels[indexPath.row].locked {
+            statusString = "locked_\(statusString)"
+        }
+        cell.profileImageView.image = UIImage(named: statusString)
         // TODO: find images for prisoners
         return cell
     }

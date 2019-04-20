@@ -33,10 +33,10 @@ class WarningViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(startButton)
         view.addSubview(warningLabel)
-        let spacing = view.frame.width / 2 - 80
+        //let spacing = view.frame.width / 2 - 80
         let vertSpacing = view.frame.height/2 - 120
         addConstraintsWithFormat(format: "H:|-8-[v0]-8-|", views: warningLabel)
-        addConstraintsWithFormat(format: "H:|-\(spacing)-[v0(160)]-\(spacing)-|", views: startButton)
+        addConstraintsWithFormat(format: "H:|-\(20)-[v0]-\(20)-|", views: startButton)
         addConstraintsWithFormat(format: "V:|-\(vertSpacing)-[v0(240)]-\(vertSpacing)-|", views: warningLabel)
         addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: startButton)
     }
@@ -79,10 +79,11 @@ class WarningViewController: UIViewController {
     }()
     
     @objc func continueButtonPressed() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let vc = HowToPlayViewController()
-        let navigationController = UINavigationController(rootViewController: vc)
-        appDelegate.window?.rootViewController = navigationController
+        navigationController?.pushViewController(vc, animated: true)
+        //let navigationController = UINavigationController(rootViewController: vc)
+        //appDelegate.window?.rootViewController = navigationController
     }
     
     func addConstraintsWithFormat(format: String, views: UIView...) {

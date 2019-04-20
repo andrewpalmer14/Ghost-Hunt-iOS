@@ -30,21 +30,21 @@ class HowToPlayViewController: UIViewController {
     func setupView() {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Stonewall-Tile.jpg")!)
         navigationController?.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
-        navigationItem.title = "Caution!"
+        navigationItem.title = "How To Play"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(startButton)
         view.addSubview(warningLabel)
-        let spacing = view.frame.width / 2 - 80
+        //let spacing = view.frame.width / 2 - 80
         let vertSpacing = view.frame.height/2 - 120
         addConstraintsWithFormat(format: "H:|-8-[v0]-8-|", views: warningLabel)
-        addConstraintsWithFormat(format: "H:|-\(spacing)-[v0(160)]-\(spacing)-|", views: startButton)
+        addConstraintsWithFormat(format: "H:|-\(20)-[v0]-\(20)-|", views: startButton)
         addConstraintsWithFormat(format: "V:|-\(vertSpacing)-[v0(240)]-\(vertSpacing)-|", views: warningLabel)
         addConstraintsWithFormat(format: "V:[v0(60)]-50-|", views: startButton)
     }
     
     let warningLabel: UILabel = {
         let label = UILabel()
-        label.text = "HOW TO PLAY:\n\n!"
+        label.text = "HOW TO PLAY:\n\n1) Explore\n2) Find Ghosts\n 3) Capture Ghosts!"
         label.textAlignment = .center
         label.numberOfLines = 5
         label.backgroundColor = UIColor.IdahoMuseumBlue
