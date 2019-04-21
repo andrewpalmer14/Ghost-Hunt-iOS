@@ -145,6 +145,7 @@ class GhostModel : NSObject {
         self.animationFiles = animationFiles
         self.pinIcon = self.getPinIcon(iconString: ghostPinIcon)
         self.profilePic = self.getProfilePic(profilePicString: profilePic)
+        self.image = UIImage(named: self.getProfilePic(profilePicString: profilePic))
         self.dod = self.getDod(dodString: dod)
     }
     

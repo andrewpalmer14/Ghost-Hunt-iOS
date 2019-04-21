@@ -11,7 +11,7 @@ import UIKit
 class TimerModel: NSObject {
     
     private var timeElapsed:Int = 0
-    private var timeLimit:Int = 10//5400
+    private var timeLimit:Int = 5400
     
     static let sharedTimer: TimerModel = {
         let timer = TimerModel()

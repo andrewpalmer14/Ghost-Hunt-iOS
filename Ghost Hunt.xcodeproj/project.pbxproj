@@ -104,6 +104,22 @@
 		984A6C45226A95550060AB33 /* Noah_Arnold_bio.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C2F226A95540060AB33 /* Noah_Arnold_bio.JPG */; };
 		984A6C46226A95550060AB33 /* Fred_Seward_bio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C30226A95550060AB33 /* Fred_Seward_bio.jpg */; };
 		984A6C47226A95550060AB33 /* Ulyssus_Bearup_bio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C31226A95550060AB33 /* Ulyssus_Bearup_bio.jpg */; };
+		984A6C57226D24460060AB33 /* Icon-App-60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C48226D24430060AB33 /* Icon-App-60x60@3x.png */; };
+		984A6C58226D24460060AB33 /* Icon-App-20x20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C49226D24430060AB33 /* Icon-App-20x20@3x.png */; };
+		984A6C59226D24460060AB33 /* Icon-App-60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C4A226D24430060AB33 /* Icon-App-60x60@2x.png */; };
+		984A6C5A226D24460060AB33 /* Icon-App-76x76@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C4B226D24430060AB33 /* Icon-App-76x76@1x.png */; };
+		984A6C5B226D24460060AB33 /* Icon-App-29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C4C226D24440060AB33 /* Icon-App-29x29@3x.png */; };
+		984A6C5C226D24460060AB33 /* Icon-App-40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C4D226D24440060AB33 /* Icon-App-40x40@2x.png */; };
+		984A6C5D226D24460060AB33 /* Icon-App-40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C4E226D24440060AB33 /* Icon-App-40x40@3x.png */; };
+		984A6C5E226D24460060AB33 /* Icon-App-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C4F226D24440060AB33 /* Icon-App-76x76@2x.png */; };
+		984A6C5F226D24460060AB33 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C50226D24440060AB33 /* Icon-App-83.5x83.5@2x.png */; };
+		984A6C60226D24460060AB33 /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C51226D24440060AB33 /* ItunesArtwork@2x.png */; };
+		984A6C61226D24460060AB33 /* Icon-App-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C52226D24450060AB33 /* Icon-App-29x29@2x.png */; };
+		984A6C62226D24460060AB33 /* Icon-App-40x40@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C53226D24450060AB33 /* Icon-App-40x40@1x.png */; };
+		984A6C63226D24460060AB33 /* Icon-App-20x20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C54226D24450060AB33 /* Icon-App-20x20@2x.png */; };
+		984A6C64226D24460060AB33 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C55226D24450060AB33 /* Icon-App-20x20@1x.png */; };
+		984A6C65226D24460060AB33 /* Icon-App-29x29@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C56226D24460060AB33 /* Icon-App-29x29@1x.png */; };
+		984A6C67226D245C0060AB33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984A6C66226D245C0060AB33 /* Images.xcassets */; };
 		987E005721A4FD0E002B3156 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987E005621A4FD0E002B3156 /* MapKit.framework */; };
 		987E005C21A5341A002B3156 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987E005B21A5341A002B3156 /* TimerViewController.swift */; };
 		988FF9A721E420350039DBB1 /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FF9A621E420350039DBB1 /* Ghost.swift */; };
@@ -226,6 +242,22 @@
 		984A6C2F226A95540060AB33 /* Noah_Arnold_bio.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Noah_Arnold_bio.JPG; sourceTree = "<group>"; };
 		984A6C30226A95550060AB33 /* Fred_Seward_bio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fred_Seward_bio.jpg; sourceTree = "<group>"; };
 		984A6C31226A95550060AB33 /* Ulyssus_Bearup_bio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ulyssus_Bearup_bio.jpg; sourceTree = "<group>"; };
+		984A6C48226D24430060AB33 /* Icon-App-60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@3x.png"; sourceTree = "<group>"; };
+		984A6C49226D24430060AB33 /* Icon-App-20x20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@3x.png"; sourceTree = "<group>"; };
+		984A6C4A226D24430060AB33 /* Icon-App-60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@2x.png"; sourceTree = "<group>"; };
+		984A6C4B226D24430060AB33 /* Icon-App-76x76@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@1x.png"; sourceTree = "<group>"; };
+		984A6C4C226D24440060AB33 /* Icon-App-29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@3x.png"; sourceTree = "<group>"; };
+		984A6C4D226D24440060AB33 /* Icon-App-40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@2x.png"; sourceTree = "<group>"; };
+		984A6C4E226D24440060AB33 /* Icon-App-40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@3x.png"; sourceTree = "<group>"; };
+		984A6C4F226D24440060AB33 /* Icon-App-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@2x.png"; sourceTree = "<group>"; };
+		984A6C50226D24440060AB33 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		984A6C51226D24440060AB33 /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ItunesArtwork@2x.png"; sourceTree = "<group>"; };
+		984A6C52226D24450060AB33 /* Icon-App-29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@2x.png"; sourceTree = "<group>"; };
+		984A6C53226D24450060AB33 /* Icon-App-40x40@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@1x.png"; sourceTree = "<group>"; };
+		984A6C54226D24450060AB33 /* Icon-App-20x20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@2x.png"; sourceTree = "<group>"; };
+		984A6C55226D24450060AB33 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
+		984A6C56226D24460060AB33 /* Icon-App-29x29@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@1x.png"; sourceTree = "<group>"; };
+		984A6C66226D245C0060AB33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		987E005621A4FD0E002B3156 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		987E005B21A5341A002B3156 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		988FF9A621E420350039DBB1 /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
@@ -280,6 +312,21 @@
 			children = (
 				984A6C29226A95530060AB33 /* Douglas_Van_Vlack_bio.jpg */,
 				984A6C1E226A95510060AB33 /* Ed_Rice_bio.jpg */,
+				984A6C55226D24450060AB33 /* Icon-App-20x20@1x.png */,
+				984A6C54226D24450060AB33 /* Icon-App-20x20@2x.png */,
+				984A6C49226D24430060AB33 /* Icon-App-20x20@3x.png */,
+				984A6C56226D24460060AB33 /* Icon-App-29x29@1x.png */,
+				984A6C52226D24450060AB33 /* Icon-App-29x29@2x.png */,
+				984A6C4C226D24440060AB33 /* Icon-App-29x29@3x.png */,
+				984A6C53226D24450060AB33 /* Icon-App-40x40@1x.png */,
+				984A6C4D226D24440060AB33 /* Icon-App-40x40@2x.png */,
+				984A6C4E226D24440060AB33 /* Icon-App-40x40@3x.png */,
+				984A6C4A226D24430060AB33 /* Icon-App-60x60@2x.png */,
+				984A6C48226D24430060AB33 /* Icon-App-60x60@3x.png */,
+				984A6C4B226D24430060AB33 /* Icon-App-76x76@1x.png */,
+				984A6C4F226D24440060AB33 /* Icon-App-76x76@2x.png */,
+				984A6C50226D24440060AB33 /* Icon-App-83.5x83.5@2x.png */,
+				984A6C51226D24440060AB33 /* ItunesArtwork@2x.png */,
 				984A6C2D226A95540060AB33 /* Ernest_Walrath_bio.jpg */,
 				984A6C30226A95550060AB33 /* Fred_Seward_bio.jpg */,
 				984A6C20226A95510060AB33 /* Frank_Frisbee_bio.jpg */,
@@ -451,6 +498,7 @@
 				987E005A21A53376002B3156 /* Controllers */,
 				98B87DCE219F5D30008D5E9B /* LaunchScreen.storyboard */,
 				98B87DD1219F5D30008D5E9B /* Info.plist */,
+				984A6C66226D245C0060AB33 /* Images.xcassets */,
 			);
 			path = "Ghost Hunt";
 			sourceTree = "<group>";
@@ -522,16 +570,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				984A6C45226A95550060AB33 /* Noah_Arnold_bio.JPG in Resources */,
+				984A6C57226D24460060AB33 /* Icon-App-60x60@3x.png in Resources */,
 				984A6C14226A317F0060AB33 /* locked_Fred_Seward.png in Resources */,
 				984A6C37226A95550060AB33 /* Ignacio_Morsagaray_bio.jpg in Resources */,
 				984A6C3E226A95550060AB33 /* Fred_Bond_bio.jpg in Resources */,
 				98CF111D21E7F2A600819085 /* cropped-ISHS-Header-Logos.png in Resources */,
 				981A0E9321A61F5E00225504 /* round_directions_run_black_36pt_3x.png in Resources */,
+				984A6C61226D24460060AB33 /* Icon-App-29x29@2x.png in Resources */,
+				984A6C5A226D24460060AB33 /* Icon-App-76x76@1x.png in Resources */,
 				984A6BDE226A1C870060AB33 /* John_Jurko.png in Resources */,
 				9804470B21ACC2E70065B5CD /* round_wallpaper_black_36pt_1x.png in Resources */,
 				984A6BE0226A1C870060AB33 /* Frank_Frisbee.png in Resources */,
 				981A0E9121A61F5E00225504 /* round_view_list_black_36pt_2x.png in Resources */,
 				981A0E9D21A61F5E00225504 /* round_directions_run_black_36pt_2x.png in Resources */,
+				984A6C65226D24460060AB33 /* Icon-App-29x29@1x.png in Resources */,
 				984A6BEB226A1C880060AB33 /* Jewell_Freng.png in Resources */,
 				981A0E9521A61F5E00225504 /* round_add_circle_black_36pt_2x.png in Resources */,
 				984A6C34226A95550060AB33 /* Ed_Rice_bio.jpg in Resources */,
@@ -543,12 +595,15 @@
 				984A6C09226A317F0060AB33 /* locked_John_Jurko.png in Resources */,
 				984A6BDD226A1C870060AB33 /* Ernest_Walrath.png in Resources */,
 				984A6C3D226A95550060AB33 /* Mike_Penford_bio.jpg in Resources */,
+				984A6C5E226D24460060AB33 /* Icon-App-76x76@2x.png in Resources */,
 				984A6C17226A317F0060AB33 /* locked_Frank_Jones.png in Resources */,
 				984A6C42226A95550060AB33 /* Joseph_Hayes_bio.jpg in Resources */,
 				98CF112121E7F2B900819085 /* Stonewall-Tile.jpg in Resources */,
 				981A0E9621A61F5E00225504 /* round_sentiment_very_dissatisfied_black_36pt_1x.png in Resources */,
 				984A6C11226A317F0060AB33 /* locked_Mike_Penford.png in Resources */,
+				984A6C5B226D24460060AB33 /* Icon-App-29x29@3x.png in Resources */,
 				981A0EA021A61F5E00225504 /* round_directions_run_black_36pt_1x.png in Resources */,
+				984A6C62226D24460060AB33 /* Icon-App-40x40@1x.png in Resources */,
 				984A6BDB226A1C870060AB33 /* Ed_Rice.png in Resources */,
 				984A6C46226A95550060AB33 /* Fred_Seward_bio.jpg in Resources */,
 				9804470D21ACC2E70065B5CD /* round_wallpaper_black_36pt_3x.png in Resources */,
@@ -557,6 +612,7 @@
 				984A6BE5226A1C870060AB33 /* Roberto_Samaniego.png in Resources */,
 				984A6C19226A317F0060AB33 /* locked_Noah_Arnold.png in Resources */,
 				984A6C1A226A317F0060AB33 /* locked_Sam_Bruner.png in Resources */,
+				984A6C58226D24460060AB33 /* Icon-App-20x20@3x.png in Resources */,
 				984A6C47226A95550060AB33 /* Ulyssus_Bearup_bio.jpg in Resources */,
 				98B87DD0219F5D30008D5E9B /* LaunchScreen.storyboard in Resources */,
 				981A0E9E21A61F5E00225504 /* round_timer_black_36pt_1x.png in Resources */,
@@ -567,6 +623,7 @@
 				984A6C16226A317F0060AB33 /* locked_Raymond_Snowden.png in Resources */,
 				984A6C08226A317F0060AB33 /* locked_Ernest_Walrath.png in Resources */,
 				98C583B721A7494B00E83243 /* round_arrow_drop_down_circle_black_36pt_3x.png in Resources */,
+				984A6C64226D24460060AB33 /* Icon-App-20x20@1x.png in Resources */,
 				984A6BEF226A1C880060AB33 /* James_Conners.png in Resources */,
 				984A6C0A226A317F0060AB33 /* locked_Ignacio_Morsagaray.png in Resources */,
 				984A6C10226A317F0060AB33 /* locked_Ulyssus_Bearup.png in Resources */,
@@ -577,12 +634,16 @@
 				984A6BEA226A1C880060AB33 /* Ulyssus_Bearup.png in Resources */,
 				984A6C07226A317F0060AB33 /* locked_Douglas_Van_Vlack.png in Resources */,
 				984A6BE3226A1C870060AB33 /* Robert_Lee_Tisdel.png in Resources */,
+				984A6C67226D245C0060AB33 /* Images.xcassets in Resources */,
+				984A6C5C226D24460060AB33 /* Icon-App-40x40@2x.png in Resources */,
 				98C583B821A7494B00E83243 /* round_arrow_drop_down_circle_black_36pt_2x.png in Resources */,
 				984A6BED226A1C880060AB33 /* William_Wild.png in Resources */,
+				984A6C5F226D24460060AB33 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				984A6C41226A95550060AB33 /* Roberto_Samaniego_bio.jpg in Resources */,
 				984A6BE2226A1C870060AB33 /* Mike_Penford.png in Resources */,
 				984A6BEC226A1C880060AB33 /* Troy_Powell.png in Resources */,
 				984A6BE9226A1C880060AB33 /* George_Hamilton.png in Resources */,
+				984A6C60226D24460060AB33 /* ItunesArtwork@2x.png in Resources */,
 				981A0E9721A61F5E00225504 /* round_sentiment_very_dissatisfied_black_36pt_2x.png in Resources */,
 				984A6BE1226A1C870060AB33 /* Raymond_Snowden.png in Resources */,
 				984A6BE7226A1C870060AB33 /* Fred_Bond.png in Resources */,
@@ -591,7 +652,9 @@
 				984A6BDA226A1C870060AB33 /* Ignacio_Morsagaray.png in Resources */,
 				984A6C1B226A317F0060AB33 /* locked_Fred_Bond.png in Resources */,
 				98C583B921A7494B00E83243 /* round_arrow_drop_down_circle_black_36pt_1x.png in Resources */,
+				984A6C59226D24460060AB33 /* Icon-App-60x60@2x.png in Resources */,
 				981A0E9021A61F5E00225504 /* round_add_circle_black_36pt_3x.png in Resources */,
+				984A6C63226D24460060AB33 /* Icon-App-20x20@2x.png in Resources */,
 				984A6C18226A317F0060AB33 /* locked_Jewell_Freng.png in Resources */,
 				984A6C33226A95550060AB33 /* Sam_Bruner_bio.jpg in Resources */,
 				989C09A621EAD27B00A093E4 /* inmates.png in Resources */,
@@ -606,6 +669,7 @@
 				984A6BEE226A1C880060AB33 /* Fred_Seward.png in Resources */,
 				980A617A21A666080020543F /* round_camera_alt_black_36pt_2x.png in Resources */,
 				984A6C12226A317F0060AB33 /* locked_William_Wild.png in Resources */,
+				984A6C5D226D24460060AB33 /* Icon-App-40x40@3x.png in Resources */,
 				984A6C0E226A317F0060AB33 /* locked_James_Conners.png in Resources */,
 				984A6C0B226A317F0060AB33 /* locked_Frank_Frisbee.png in Resources */,
 				981A0E8F21A61F5E00225504 /* round_add_circle_black_36pt_1x.png in Resources */,
@@ -785,9 +849,11 @@
 		98B87DD5219F5D30008D5E9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85ZXRYZ5QH;
 				INFOPLIST_FILE = "Ghost Hunt/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -802,9 +868,11 @@
 		98B87DD6219F5D30008D5E9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85ZXRYZ5QH;
 				INFOPLIST_FILE = "Ghost Hunt/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

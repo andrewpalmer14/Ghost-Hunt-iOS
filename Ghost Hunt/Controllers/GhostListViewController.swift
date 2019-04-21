@@ -39,7 +39,7 @@ class GhostListViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.detailTextLabel?.text = ghostModels[indexPath.row].dod
         if (ghostModels[indexPath.row].locked) {
             cell.statusLabel.text = "Undiscovered"
-            //cell.isUserInteractionEnabled = false
+            cell.isUserInteractionEnabled = false
         } else {
             cell.statusLabel.text = "Captured!"
             cell.profileImageView.image = ghostModels[indexPath.row].image!

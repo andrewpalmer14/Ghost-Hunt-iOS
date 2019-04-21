@@ -231,7 +231,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         for i in 0...18 {
             // using hard coded default values to create models
             let ghostModel = GhostModel(fileName: defaultFileNames[i], ghostName: defaultNames[i], ghostYear: "1887", ghostBio: defaultBios[i], ghostLocation: defaultLocations[i], ghostPoints: 25, locked: true, animationKeys: animationKeys[i], animationFiles: animationFiles[i], ghostPinIcon: pinIcons[i], profilePic: profilePicNames[i], dod: dod[i])
-            //ghostModel.image = UIImage(named: pinIcons[i])
+            //ghostModel.image = UIImage(named: )
             self.ghostObjects.append(ghostModel)
             if (ghostObjects.count == 1) {
                 addGhostToMap(ghostModel: ghostObjects[0])
