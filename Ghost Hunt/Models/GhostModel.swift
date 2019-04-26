@@ -28,21 +28,21 @@ class GhostModel : NSObject {
     
     enum Model: String {
         case Model1 = "model1"  //Ernest Walrath
-        case Model2 = "model2"
-        case Model3 = "model3"
-        case Model4 = "model4"
-        case Model5 = "model5"
-        case Model6 = "model6"
-        case Model7 = "model7"
-        case Model8 = "model8"
-        case Model9 = "model9"
-        case Model10 = "model10"
-        case Model11 = "model11"
-        case Model12 = "model12"
-        case Model13 = "model13"
-        case Model14 = "model14"
-        case Model15 = "model15"
-        case Model16 = "model16"
+        case Model2 = "model2"  //Raymond Snowden
+        case Model3 = "model3"  //Douglas Van Vlack
+        case Model4 = "model4"  //Troy Powell
+        case Model5 = "model5"  //Ed Rice
+        case Model6 = "model6"  //Frank Frisbee
+        case Model7 = "model7"  //Noah Arnold
+        case Model8 = "model8"  //Frank Jones
+        case Model9 = "model9"  //Fred Seward
+        case Model10 = "model10"//Ignacio Morsagaray
+        case Model11 = "model11"//John Jurko
+        case Model12 = "model12"//Joseph Hayes
+        case Model13 = "model13"//Mike Penford
+        case Model14 = "model14"//Robert Samaniego
+        case Model15 = "model15"//Ulyssus Bearup
+        case Model16 = "model16"//Fred Bond
     }
     
     enum DateOfDeath: String {
@@ -62,9 +62,6 @@ class GhostModel : NSObject {
         case Dod14 = "dod14"
         case Dod15 = "dod15"
         case Dod16 = "dod16"
-        case Dod17 = "dod17"
-        case Dod18 = "dod18"
-        case Dod19 = "dod19"
     }
     
     enum Location: String {
@@ -103,9 +100,6 @@ class GhostModel : NSObject {
         case Icon14 = "pinIcon14"
         case Icon15 = "pinIcon15"
         case Icon16 = "pinIcon16"
-        case Icon17 = "pinIcon17"
-        case Icon18 = "pinIcon18"
-        case Icon19 = "pinIcon19"
     }
     
     enum ProfilePics: String {
@@ -125,9 +119,6 @@ class GhostModel : NSObject {
         case ProfilePic14 = "profilePic14"
         case ProfilePic15 = "profilePic15"
         case ProfilePic16 = "profilePic16"
-        case ProfilePic17 = "profilePic17"
-        case ProfilePic18 = "profilePic18"
-        case ProfilePic19 = "profilePic19"
     }
     
     init(fileName: String, ghostName: String, ghostYear: String, ghostBio:String, ghostLocation:String, ghostPoints:Int, locked: Bool, animationKeys: [String], animationFiles: [String], ghostPinIcon: String, profilePic: String, dod: String) {
@@ -171,25 +162,20 @@ class GhostModel : NSObject {
             case .ProfilePic9:
                 return "Fred_Seward_bio.jpg"
             case .ProfilePic10:
-                return "George_Hamilton_bio.jpg"
-            case .ProfilePic11:
                 return "Ignacio_Morsagaray_bio.jpg"
-            case .ProfilePic12:
-                return "James_Conners_bio.jpg"
-            case .ProfilePic13:
+            case .ProfilePic11:
                 return "John_Jurko_bio.JPG"
-            case .ProfilePic14:
+            case .ProfilePic12:
                 return "Joseph_Hayes_bio.jpg"
-            case .ProfilePic15:
+            case .ProfilePic13:
                 return "Mike_Penford_bio.jpg"
-            case .ProfilePic16:
+            case .ProfilePic14:
                 return "Roberto_Samaniego_bio.jpg"
-            case .ProfilePic17:
+            case .ProfilePic15:
                 return "Ulyssus_Bearup_bio.jpg"
-            case .ProfilePic18:
+            case .ProfilePic16:
                 return "Fred_Bond_bio.jpg"
-            case .ProfilePic19:
-                return "William_Wild_bio.jpg"
+            
             }
         }
         return "Ernest_Walrath_bio.jpg"
@@ -217,25 +203,20 @@ class GhostModel : NSObject {
             case .Dod9:
                 return "October 1897"
             case .Dod10:
-                return "July 11, 1923"
-            case .Dod11:
                 return "December 16th, 1904"
-            case .Dod12:
-                return "July 9th, 1926"
-            case .Dod13:
+            case .Dod11:
                 return "December 24th, 1918"
-            case .Dod14:
+            case .Dod12:
                 return "January 5th, 1919"
-            case .Dod15:
+            case .Dod13:
                 return "September 15th, 1953"
-            case .Dod16:
+            case .Dod14:
                 return "May 23rd, 1914"
-            case .Dod17:
+            case .Dod15:
                 return "August 10th, 1906"
-            case .Dod18:
+            case .Dod16:
                 return "May 4th, 1920"
-            case .Dod19:
-                return "May 4th, 1920"
+            
             }
         }
          return "April 13th, 1951"
@@ -303,25 +284,19 @@ class GhostModel : NSObject {
             case .Icon9:
                 return "Fred_Seward"
             case .Icon10:
-                return "George_Hamilton"
-            case .Icon11:
                 return "Ignacio_Morsagaray"
-            case .Icon12:
-                return "James_Conners"
-            case .Icon13:
+            case .Icon11:
                 return "John_Jurko"
-            case .Icon14:
+            case .Icon12:
                 return "Joseph_Hayes"
-            case .Icon15:
+            case .Icon13:
                 return "Mike_Penford"
-            case .Icon16:
+            case .Icon14:
                 return "Roberto_Samaniego"
-            case .Icon17:
+            case .Icon15:
                 return "Ulyssus_Bearup"
-            case .Icon18:
+            case .Icon16:
                 return "Fred_Bond"
-            case .Icon19:
-                return "William_Wild"
             }
         }
         return "Ernest_Walrath.png"
