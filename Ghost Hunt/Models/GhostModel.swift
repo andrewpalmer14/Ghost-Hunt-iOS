@@ -191,31 +191,31 @@ class GhostModel : NSObject {
             case .Dod3:
                 return "December 10th, 1937"
             case .Dod4:
-                return "November 30th, 1901"
+                return "April 13th, 1951"
             case .Dod5:
-                return "December 28th, 1918"
+                return "November 30th, 1901"//"December 28th, 1918"
             case .Dod6:
-                return "December 19th, 1924"
+                return "December 28th, 1918"//"December 19th, 1924"
             case .Dod7:
-                return "December 19th, 1918"
+                return "December 19th, 1924"//
             case .Dod8:
-                return "May 7th, 1909"
+                return "December 19th, 1918"//"May 7th, 1909"
             case .Dod9:
-                return "October 1897"
+                return "May 7th, 1909"//"October 1897"
             case .Dod10:
-                return "December 16th, 1904"
+                return "July 11th, 1923"//"December 16th, 1904"
             case .Dod11:
-                return "December 24th, 1918"
+                return "July 9th, 1926"//December 24th, 1918"
             case .Dod12:
-                return "January 5th, 1919"
+                return "December 24th, 1918"//"January 5th, 1919"
             case .Dod13:
-                return "September 15th, 1953"
+                return "January 5th, 1919"//"September 15th, 1953"
             case .Dod14:
-                return "May 23rd, 1914"
+                return "September 15th, 1953"//"May 23rd, 1914"
             case .Dod15:
-                return "August 10th, 1906"
+                return "May 23rd, 1914"//"August 10th, 1906"
             case .Dod16:
-                return "May 4th, 1920"
+                return "August 10th, 1906"//"May 4th, 1920"
             
             }
         }
