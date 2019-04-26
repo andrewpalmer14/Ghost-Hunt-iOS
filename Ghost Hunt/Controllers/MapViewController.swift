@@ -121,7 +121,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     public var ghostObjects: [GhostModel] = []
     public var trackLocation: Bool = true
     private var ghosts: [NSManagedObject] = []
-    private var ghostReadyToAdd:Bool = false
+    private var ghostReadyToAdd:Bool = true
     
     var toggled: Bool = false   // ui button toggle
     var pinAnnotationView:MKPinAnnotationView!  // used to display custom pins
@@ -161,6 +161,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if i == ghostIndex {
                 if ghostReadyToAdd {
                     addGhostToMap(ghostModel: ghostObjects[i])
+                    //ghostReadyToAdd = false
                 }
             } else {
                 addGhostToMap(ghostModel: ghostObjects[i])
