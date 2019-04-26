@@ -158,7 +158,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         customPins = []
         for i in 0...ghostIndex {
-            addGhostToMap(ghostModel: ghostObjects[i])
+            if i == ghostIndex {
+                if ghostReadyToAdd {
+                    addGhostToMap(ghostModel: ghostObjects[i])
+                }
+            } else {
+                addGhostToMap(ghostModel: ghostObjects[i])
+            }
         }
     }
     
@@ -273,7 +279,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             TimerModel.sharedGhostTimer.resetTimer()
             TimerModel.sharedGhostTimer.startOneSecondTimer {}
             ghostReadyToAdd = true
-            
         } else {
             print("Index out of bounds")
         }

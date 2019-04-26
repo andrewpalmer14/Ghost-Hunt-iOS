@@ -23,7 +23,7 @@ class TimerModel: NSObject {
     }()
     
     static let sharedGhostTimer: TimerModel = {
-        let timer = TimerModel(timeLimit: 90) 
+        let timer = TimerModel(timeLimit: 90)
         return timer
     }()
     
