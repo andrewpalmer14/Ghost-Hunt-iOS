@@ -10,11 +10,20 @@ import UIKit
 
 class TimerModel: NSObject {
     
+    init(timeLimit:Int) {
+        self.timeLimit = timeLimit
+    }
+    
+    private var timeLimit:Int
     private var timeElapsed:Int = 0
-    private var timeLimit:Int = 5400 /***/
     
     static let sharedTimer: TimerModel = {
-        let timer = TimerModel()
+        let timer = TimerModel(timeLimit: 5400)
+        return timer
+    }()
+    
+    static let sharedGhostTimer: TimerModel = {
+        let timer = TimerModel(timeLimit: 90) 
         return timer
     }()
     
@@ -44,6 +53,10 @@ class TimerModel: NSObject {
         }
         jobs = [()->()]()
         internalTimer?.invalidate()
+    }
+    
+    func resetTimer() {
+        self.timeElapsed = 0
     }
     
     func getTimeElapsed() -> Int {

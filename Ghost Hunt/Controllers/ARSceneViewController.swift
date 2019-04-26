@@ -215,7 +215,12 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate {
                     uiMarker?.isHidden = true
                     button?.isHidden = true
                     takeScreenshot()
+                    self.delegate.ghostCaptured()
                     triggerAnimation(key: ghostModel.animationKeys[2])
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+                        timer.invalidate()
+                        //self.navigationController?.popViewController(animated: true)
+                    }
                     print("screenshot, should be playing animation: " + currentAnimation)
                 } else {
                     if let parentNode = tappedNode?.parent {

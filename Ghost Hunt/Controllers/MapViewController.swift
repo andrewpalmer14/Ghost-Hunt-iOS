@@ -121,6 +121,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     public var ghostObjects: [GhostModel] = []
     public var trackLocation: Bool = true
     private var ghosts: [NSManagedObject] = []
+    private var ghostReadyToAdd:Bool = false
     
     var toggled: Bool = false   // ui button toggle
     var pinAnnotationView:MKPinAnnotationView!  // used to display custom pins
@@ -164,6 +165,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // Starts timer, navigations to game over view when time runs out
     func startUpdateTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            self.checkGhostShouldAppear()
             let formatter = DateComponentsFormatter()
             formatter.allowedUnits = [.hour, .minute, .second]
             formatter.unitsStyle = .full
@@ -250,6 +252,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.addCustomPinAtCoordinate(coordinate: ghostModel.ghostLocation, customPin: ghostPin)
     }
     
+    func checkGhostShouldAppear() {
+        if ghostReadyToAdd {
+            if TimerModel.sharedGhostTimer.getTimeElapsed() > TimerModel.sharedGhostTimer.getTimeLimit() {
+                addGhostToMap(ghostModel: ghostObjects[ghostIndex])
+            }
+        }
+    }
+    
     // Called when ghost is captured in AR Controller
     func ghostCaptured() {
         if ghostIndex < ghostObjects.count - 1 {
@@ -260,7 +270,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             //addGhostToMap(ghostModel: ghostObjects[ghostIndex - 1])
             //mapView?.addAnnotation(annotation)
             //addGhostToMap(ghostModel: ghostObjects[ghostIndex - 1])
-            addGhostToMap(ghostModel: ghostObjects[ghostIndex])
+            TimerModel.sharedGhostTimer.resetTimer()
+            TimerModel.sharedGhostTimer.startOneSecondTimer {}
+            ghostReadyToAdd = true
+            
         } else {
             print("Index out of bounds")
         }
