@@ -190,7 +190,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 navigationContrller.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
                 appDelegate.window?.rootViewController = navigationContrller
             }
-            if self.ghostIndex == 15 {
+            if self.ghostIndex >= 16 {
                 print("game won")
                 TimerModel.sharedGhostTimer.stopTimer()
                 TimerModel.sharedTimer.stopTimer()
