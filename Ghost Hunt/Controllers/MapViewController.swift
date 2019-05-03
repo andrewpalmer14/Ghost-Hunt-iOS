@@ -376,7 +376,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView?.isRotateEnabled = false
         mapView?.isZoomEnabled = false
         mapView?.showsUserLocation = true
-        mapView?.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.602401, longitude: -116.162292), latitudinalMeters: 200, longitudinalMeters: 200)
+        mapView?.showsCompass = false
+        mapView?.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.602301/*43.602401*/, longitude: -116.162292/*-116.162292*/), latitudinalMeters: 50, longitudinalMeters: 50)
+        mapView?.camera.heading = 94
+        mapView?.setCamera(mapView!.camera, animated: false)
         view = mapView
     }
     
