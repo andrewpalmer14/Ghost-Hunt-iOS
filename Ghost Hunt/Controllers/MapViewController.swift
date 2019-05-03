@@ -53,7 +53,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                  
                                  /*"William Wild was serving a sentence for Grand Larceny, horse stealing. He became the prison Barber in 1920, and quickly became enemies with a former barber named J.C. McDonald who was a life long criminal and convict. He was serving his sentence for breaking into a drug store and stealing cocaine. When the yard captain realized that Wild and McDonald didn’t get along, the captain took McDonald away to find different work. McDonald returned the next week to get his own haircut, when the two men began arguing and swearing at each other. McDonald stormed out of the barbershop and ran to the multipurpose building to pick up a piece of 2 x 4 that was being used to build new turkey coops. He returned to continue the argument with William Wild, and in a brash decision, beat William Wild across the forehead with the board. William Wild fell unconscious, and the yard captain arrived on the scene and apprehended McDonald and tossed him in solitary confinement. Wild was sent to the hospital, where he ultimately died."*/]
     let dod: [String] = ["dod1","dod2","dod3","dod4","dod5","dod6","dod7","dod8","dod9","dod10","dod11","dod12","dod13","dod14","dod15","dod16"]
-    let defaultLocations: [String] = ["location2", "location5", "location6", "location8", "location9", "location8", "location9", "location11", "location2", "location5", "location6", "location8", "location9", "location8", "location9", "location11", "location2", "location5", "location6", "location8", "location9"]
+    let defaultLocations: [String] = ["location1", "location2", "location3", "location4", "location5", "location6", "location7", "location8", "location9", "location10", "location11", "location12", "location13", "location14", "location15", "location16"]
     var animationFiles = [["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
                          ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
                          ["StabbingFixed","TauntFixed","DefeatedFixed","PrayingFixed"],
@@ -179,10 +179,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let formattedString = formatter.string(from: TimeInterval((TimerModel.sharedTimer.getTimeLimit() - TimerModel.sharedTimer.getTimeElapsed())))!
             self.navigationItem.title = "Time Remaining: \(formattedString)"
             if TimerModel.sharedTimer.getTimeElapsed() >= TimerModel.sharedTimer.getTimeLimit() {
+                TimerModel.sharedGhostTimer.stopTimer()
+                TimerModel.sharedTimer.stopTimer()
                 print("time to end game")
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let vc = GhostListViewController()
                 vc.gameOver = true
+                vc.delegate = self
+                let navigationContrller = UINavigationController(rootViewController: vc)
+                navigationContrller.navigationBar.barTintColor = UIColor.IdahoMuseumBlue
+                appDelegate.window?.rootViewController = navigationContrller
+            }
+            if self.ghostIndex == 15 {
+                print("game won")
+                TimerModel.sharedGhostTimer.stopTimer()
+                TimerModel.sharedTimer.stopTimer()
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let vc = GhostListViewController()
+                vc.gameOver = true
+                vc.gameWon = true
                 vc.delegate = self
                 let navigationContrller = UINavigationController(rootViewController: vc)
                 navigationContrller.navigationBar.barTintColor = UIColor.IdahoMuseumBlue

@@ -347,37 +347,37 @@ class GhostModel : NSObject {
         if let location = Location.init(rawValue: locationString) {
             switch location {
                 case .Location1:  // gallows location
-                    return CLLocationCoordinate2D(latitude: 43.602489, longitude: -116.161488)
+                    return CLLocationCoordinate2D(latitude: 43.602572, longitude: -116.1616976)
                 case .Location2:  // 5 house
-                    return CLLocationCoordinate2D(latitude: 43.602391, longitude: -116.162723)
+                    return CLLocationCoordinate2D(latitude: 43.602378, longitude: -116.161754)
                 case .Location3:  // top right
-                    return CLLocationCoordinate2D(latitude: 43.602488, longitude: -116.161933)
+                    return CLLocationCoordinate2D(latitude: 43.602487, longitude: -116.161518)
                 case .Location4:  // gallows location
-                    return CLLocationCoordinate2D(latitude: 43.602489, longitude: -116.161496)
+                    return CLLocationCoordinate2D(latitude: 43.602168, longitude: -116.161759)
                 case .Location5: // medtop mid
-                    return CLLocationCoordinate2D(latitude: 43.602564, longitude: -116.161985)
+                    return CLLocationCoordinate2D(latitude: 43.601830, longitude: -116.161585)
                 case .Location6: //hospital
                     return CLLocationCoordinate2D(latitude: 43.601917, longitude: -116.161789 )
                 case .Location7: // center left
-                    return CLLocationCoordinate2D(latitude: 43.602397, longitude: -116.163052)
+                    return CLLocationCoordinate2D(latitude: 43.602032, longitude: -116.161794)
                 case .Location8:    // center mid
-                    return CLLocationCoordinate2D(latitude: 43.602397, longitude: -116.161985)
+                    return CLLocationCoordinate2D(latitude: 43.602237, longitude: -116.162212)
                 case .Location9:    // center right
-                    return CLLocationCoordinate2D(latitude: 43.602397, longitude: -116.161370)
+                    return CLLocationCoordinate2D(latitude: 43.602403, longitude: -116.162043)
                 case .Location10:  //2 house
-                    return CLLocationCoordinate2D(latitude: 43.602459 , longitude: -116.162143)
+                    return CLLocationCoordinate2D(latitude: 43.602263 , longitude: -116.161402)
                 case .Location11:  //medbottom mid
                     return CLLocationCoordinate2D(latitude: 43.602226, longitude: -116.161985)
                 case .Location12:  //medbottom right
-                    return CLLocationCoordinate2D(latitude: 43.602226, longitude: -116.161370)
+                    return CLLocationCoordinate2D(latitude: 43.602462, longitude: -116.162157)
                 case .Location13:  //hospital
-                    return CLLocationCoordinate2D(latitude: 43.601917, longitude: -116.161789)
+                    return CLLocationCoordinate2D(latitude: 43.602556, longitude: -116.162484)
                 case .Location14:  //basketball court
-                    return CLLocationCoordinate2D(latitude: 43.602531, longitude: -116.162450)
+                    return CLLocationCoordinate2D(latitude: 43.602343, longitude: -116.162168)
                 case .Location15:  // bottom mid
-                    return CLLocationCoordinate2D(latitude: 43.601830, longitude: -116.161985)
+                    return CLLocationCoordinate2D(latitude: 43.602114, longitude: -116.162436)
                 case .Location16:  // gallows location
-                    return CLLocationCoordinate2D(latitude: 43.602489, longitude: -116.161484)
+                    return CLLocationCoordinate2D(latitude: 43.602351, longitude: -116.162515)
             }
         }
         return CLLocationCoordinate2D(latitude: 0, longitude: 0)
