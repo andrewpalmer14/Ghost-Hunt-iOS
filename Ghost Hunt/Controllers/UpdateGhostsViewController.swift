@@ -89,7 +89,7 @@ class UpdateGhostsViewController: UIViewController {
         self.view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-        getJSON(path: "http://ec2-34-220-116-162.us-west-2.compute.amazonaws.com/api/read.php");
+        getJSON(path: "");
     }
     
     func getJSON(path: String) {
